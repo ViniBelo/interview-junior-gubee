@@ -1,7 +1,8 @@
 package br.com.gubee.interview.core.features.hero;
 
-import br.com.gubee.interview.model.Hero;
+import br.com.gubee.interview.core.features.connectors.HeroPowerStatsConnector;
 import br.com.gubee.interview.model.request.CreateHeroRequest;
+import br.com.gubee.interview.model.request.UpdateHeroRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -20,6 +21,7 @@ import static org.springframework.http.ResponseEntity.created;
 public class HeroController {
 
     private final HeroService heroService;
+    private final HeroPowerStatsConnector heroPowerStatsConnector;
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> create(@Validated
@@ -29,8 +31,17 @@ public class HeroController {
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Hero> findById(@Validated @PathVariable UUID id) {
-        final Hero hero = heroService.findById(id);
-        return ResponseEntity.ok().body(hero);
+    public ResponseEntity<Object> findById(@Validated @PathVariable UUID id) {
+        return heroService.findById(id);
+    }
+
+    @GetMapping(value = "/search/{name}")
+    public ResponseEntity<Object> findByName(@Validated @PathVariable String name) {
+        return heroService.findByName(name);
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Object> updateHero(@Validated @PathVariable UUID id, @Validated @RequestBody UpdateHeroRequest updateHeroRequest) {
+        return heroPowerStatsConnector.updateHeroAndStats(id, updateHeroRequest);
     }
 }
