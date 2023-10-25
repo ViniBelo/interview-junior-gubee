@@ -44,4 +44,9 @@ public class HeroController {
     public ResponseEntity<Object> updateHero(@Validated @PathVariable UUID id, @Validated @RequestBody UpdateHeroRequest updateHeroRequest) {
         return heroPowerStatsConnector.updateHeroAndStats(id, updateHeroRequest);
     }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Object> deleteHero(@Validated @PathVariable UUID id) {
+        return heroPowerStatsConnector.deleteHero(id);
+    }
 }

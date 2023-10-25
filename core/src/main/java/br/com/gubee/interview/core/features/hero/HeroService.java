@@ -72,4 +72,14 @@ public class HeroService {
     public UUID getPowerStatsIdFromCurrentHero(UUID id) {
         return heroRepository.getPowerStatsIdFromCurrentHero(id);
     }
+
+    @Transactional
+    public ResponseEntity<Object> deleteHero(UUID id) {
+        try {
+            heroRepository.delete(id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (EmptyResultDataAccessException e) {
+            return new ResponseEntity<>("Hero not found", HttpStatus.NOT_FOUND);
+        }
+    }
 }

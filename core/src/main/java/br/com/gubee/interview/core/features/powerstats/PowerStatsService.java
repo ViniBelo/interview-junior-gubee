@@ -32,4 +32,14 @@ public class PowerStatsService {
             return new ResponseEntity<>("Hero not found", HttpStatus.NOT_FOUND);
         }
     }
+
+    @Transactional
+    public ResponseEntity<Object> deletePowerStats(UUID id) {
+        try {
+            powerStatsRepository.delete(id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (EmptyResultDataAccessException e) {
+            return new ResponseEntity<>("Hero not found", HttpStatus.NOT_FOUND);
+        }
+    }
 }

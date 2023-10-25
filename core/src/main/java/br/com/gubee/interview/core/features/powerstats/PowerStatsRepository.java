@@ -49,4 +49,17 @@ public class PowerStatsRepository {
                 params
         );
     }
+
+    private static final String DELETE_POWER_STATS_QUERY =
+            "DELETE " +
+                    "FROM power_stats " +
+                    "WHERE id = :id";
+
+    public void delete(UUID id) {
+        final Map<String, Object> params = Map.of("id", id);
+        namedParameterJdbcTemplate.update(
+                DELETE_POWER_STATS_QUERY,
+                params
+        );
+    }
 }

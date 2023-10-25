@@ -26,12 +26,14 @@ public class HeroRepository {
     public UUID create(Hero hero) {
         final Map<String, Object> params = Map.of("name", hero.getName(),
             "race", hero.getRace().name(),
-            "powerStatsId", hero.getPowerStatsId());
+            "powerStatsId", hero.getPowerStatsId()
+        );
 
         return namedParameterJdbcTemplate.queryForObject(
             CREATE_HERO_QUERY,
             params,
-            UUID.class);
+            UUID.class
+        );
     }
 
     private static final String GET_HERO_BY_ID_QUERY =
@@ -57,6 +59,7 @@ public class HeroRepository {
                     "ON h.power_stats_id = ps.id " +
                     "WHERE h.name " +
                     "ILIKE :name";
+
     public CreateHeroResponse findByName(String name) {
         final Map<String, Object> params = Map.of("name", name);
         return namedParameterJdbcTemplate.queryForObject(
@@ -114,6 +117,20 @@ public class HeroRepository {
         return namedParameterJdbcTemplate.queryForObject(
                 GET_POWER_STATS_ID_FROM_CURRENT_HERO_QUERY,
                 params,
-                UUID.class);
+                UUID.class
+        );
+    }
+
+    private static final String DELETE_HERO_QUERY =
+            "DELETE " +
+            "FROM hero " +
+            "WHERE id = :id";
+
+    public void delete(UUID id) {
+        final Map<String, Object> params = Map.of("id", id);
+        namedParameterJdbcTemplate.update(
+                DELETE_HERO_QUERY,
+                params
+        );
     }
 }
