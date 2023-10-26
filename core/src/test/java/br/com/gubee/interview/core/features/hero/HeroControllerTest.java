@@ -1,8 +1,10 @@
 package br.com.gubee.interview.core.features.hero;
 
+import br.com.gubee.interview.core.features.connectors.HeroPowerStatsConnector;
 import br.com.gubee.interview.model.enums.Race;
 import br.com.gubee.interview.model.request.CreateHeroRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.checkerframework.framework.qual.StubFiles;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +33,12 @@ class HeroControllerTest {
 
     @MockBean
     private HeroService heroService;
+
+    @MockBean
+    private HeroPowerStatsConnector heroPowerStatsConnector;
+
+    HeroRepositoryStub heroRepositoryStub;
+
 
     @BeforeEach
     public void initTest() {

@@ -1,7 +1,13 @@
-br\com\gubee\interview\model\request\CreateHeroRequest.class
 br\com\gubee\interview\model\Hero.class
-br\com\gubee\interview\model\request\CreateHeroRequest$CreateHeroRequestBuilder.class
+br\com\gubee\interview\model\request\UpdateHeroRequest$UpdateHeroRequestBuilder.class
 br\com\gubee\interview\model\enums\Race.class
+br\com\gubee\interview\model\request\UpdateHeroRequest.class
+br\com\gubee\interview\model\response\ComparePowerStatsResponse.class
+br\com\gubee\interview\model\request\CreateHeroRequest.class
+br\com\gubee\interview\model\request\CreateHeroRequest$CreateHeroRequestBuilder.class
+br\com\gubee\interview\model\response\CreateHeroResponse.class
+br\com\gubee\interview\model\response\ComparePowerStatsResponse$ComparePowerStatsResponseBuilder.class
 br\com\gubee\interview\model\Hero$HeroBuilder.class
 br\com\gubee\interview\model\PowerStats$PowerStatsBuilder.class
+br\com\gubee\interview\model\response\CreateHeroResponse$CreateHeroResponseBuilder.class
 br\com\gubee\interview\model\PowerStats.class

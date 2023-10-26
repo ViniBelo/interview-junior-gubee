@@ -1,0 +1,27 @@
+version: '3'
+services:
+  interview-postgres-it:
+    image: postgres:13.2-alpine
+    container_name: interview-postgres-it
+    networks:
+      - interview-network
+    environment:
+      POSTGRES_USERNAME: gubee
+      POSTGRES_PASSWORD: gubee
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./src/main/resources/db/schema/init_schema.sql:/docker-entrypoint-initdb.d/init_schema.sql:z
+
+  api:
+    build: .
+    container_name: api
+    networks:
+      - interview-network
+    ports:
+      - "8080:8080"
+    depends_on:
+      - interview-postgres-it
+
+networks:
+  interview-network:
