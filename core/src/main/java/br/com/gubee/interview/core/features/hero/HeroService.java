@@ -1,11 +1,11 @@
 package br.com.gubee.interview.core.features.hero;
 
-import br.com.gubee.interview.core.features.connectors.HeroPowerStatsConnector;
 import br.com.gubee.interview.core.features.powerstats.PowerStatsService;
 import br.com.gubee.interview.model.Hero;
 import br.com.gubee.interview.model.PowerStats;
 import br.com.gubee.interview.model.request.CreateHeroRequest;
 import br.com.gubee.interview.model.request.UpdateHeroRequest;
+import br.com.gubee.interview.model.response.ComparePowerStatsResponse;
 import br.com.gubee.interview.model.response.CreateHeroResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DuplicateKeyException;
@@ -78,6 +78,27 @@ public class HeroService {
         try {
             heroRepository.delete(id);
             return new ResponseEntity<>(HttpStatus.OK);
+        } catch (EmptyResultDataAccessException e) {
+            return new ResponseEntity<>("Hero not found", HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @Transactional
+    public ResponseEntity<Object> compareHeroes(UUID heroId1, UUID heroId2) {
+        try {
+            CreateHeroResponse hero1 = heroRepository.findById(heroId1);
+            CreateHeroResponse hero2 = heroRepository.findById(heroId2);
+
+            ComparePowerStatsResponse heroResponse = new ComparePowerStatsResponse(
+                    heroId1,
+                    heroId2,
+                    hero2.getStrength() - hero1.getStrength(),
+                    hero2.getAgility() - hero1.getAgility(),
+                    hero2.getDexterity() - hero1.getDexterity(),
+                    hero2.getIntelligence() - hero1.getIntelligence()
+                    );
+
+            return ResponseEntity.ok().body(heroResponse);
         } catch (EmptyResultDataAccessException e) {
             return new ResponseEntity<>("Hero not found", HttpStatus.NOT_FOUND);
         }

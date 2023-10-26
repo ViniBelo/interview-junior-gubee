@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
 import java.util.UUID;
@@ -22,6 +23,7 @@ public class HeroPowerStatsConnector {
     private final PowerStatsService powerStatsService;
     private final HeroService heroService;
 
+    @Transactional
     public Hero createHero(CreateHeroRequest createHeroRequest) {
         return new Hero(createHeroRequest, powerStatsService.create(
                 new PowerStats(null, createHeroRequest.getStrength(),
@@ -30,6 +32,7 @@ public class HeroPowerStatsConnector {
                         createHeroRequest.getIntelligence(), Instant.now(), Instant.now())));
     }
 
+    @Transactional
     public ResponseEntity<Object> updateHeroAndStats(UUID id, UpdateHeroRequest updateHeroRequest) {
         try {
             powerStatsService.updateById(heroService.getPowerStatsIdFromCurrentHero(id), updateHeroRequest);
@@ -40,6 +43,7 @@ public class HeroPowerStatsConnector {
         }
     }
 
+    @Transactional
     public ResponseEntity<Object> deleteHero(UUID id) {
         try {
             var powerStatsId = heroService.getPowerStatsIdFromCurrentHero(id);

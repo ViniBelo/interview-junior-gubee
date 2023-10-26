@@ -40,6 +40,11 @@ public class HeroController {
         return heroService.findByName(name);
     }
 
+    @GetMapping(value = "/{heroId1}/{heroId2}")
+    public ResponseEntity<Object> compareById(@Validated @PathVariable UUID heroId1, @Validated @PathVariable UUID heroId2) {
+        return heroService.compareHeroes(heroId1, heroId2);
+    }
+
     @PutMapping(value = "/{id}")
     public ResponseEntity<Object> updateHero(@Validated @PathVariable UUID id, @Validated @RequestBody UpdateHeroRequest updateHeroRequest) {
         return heroPowerStatsConnector.updateHeroAndStats(id, updateHeroRequest);
