@@ -1,7 +1,6 @@
 package br.com.gubee.interview.core.features.hero;
 
 import br.com.gubee.interview.model.Hero;
-import br.com.gubee.interview.model.PowerStats;
 import br.com.gubee.interview.model.request.UpdateHeroRequest;
 import br.com.gubee.interview.model.response.CreateHeroResponse;
 
@@ -12,7 +11,6 @@ import java.util.UUID;
 public class HeroRepositoryStub {
 
     Map<UUID, Hero> heroes = new HashMap<>();
-    Map<UUID, PowerStats> powerStats = new HashMap<>();
 
     public UUID create(Hero hero) {
         try {
