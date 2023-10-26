@@ -2,6 +2,7 @@ package br.com.gubee.interview.core.features.hero;
 
 import br.com.gubee.interview.model.Hero;
 import br.com.gubee.interview.model.PowerStats;
+import br.com.gubee.interview.model.request.UpdateHeroRequest;
 import br.com.gubee.interview.model.response.CreateHeroResponse;
 
 import java.util.HashMap;
@@ -39,4 +40,12 @@ public class HeroRepositoryStub {
         }
     }
 
+    public void updateHero (UUID id, UpdateHeroRequest updateHeroRequest) {
+        heroes.get(id).setName(updateHeroRequest.getName());
+        heroes.get(id).setRace(updateHeroRequest.getRace());
+    }
+
+    public void delete(UUID id) {
+        heroes.remove(id);
+    }
 }
