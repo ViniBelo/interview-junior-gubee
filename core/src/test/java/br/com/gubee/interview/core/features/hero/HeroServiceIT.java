@@ -66,11 +66,11 @@ public class HeroServiceIT {
     public void findByName() {
         //given
         //when
-        heroService.findById(UUID.randomUUID());
+        heroService.findByName(createHeroResponse().getName());
 
         //then
-        verify(heroRepository, times(1)).findById(UUID.randomUUID());
-        Assertions.assertEquals(heroService.findById(UUID.randomUUID()), createHeroResponse());
+        verify(heroRepository, times(1)).findByName(createHeroResponse().getName());
+        Assertions.assertEquals(heroService.findByName(createHeroRequest().getName()), createHeroResponse());
     }
 
     private CreateHeroResponse createHeroResponse() {
