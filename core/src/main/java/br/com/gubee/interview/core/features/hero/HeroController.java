@@ -29,7 +29,7 @@ public class HeroController {
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> create(@Validated @RequestBody CreateHeroRequest createHeroRequest) {
-        final UUID id = heroService.create(createHeroRequest);
+        final UUID id = heroPowerStatsConnector.createHero(createHeroRequest);
         return created(URI.create(format("/api/v1/heroes/%s", id))).build();
     }
 

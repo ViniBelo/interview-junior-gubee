@@ -26,17 +26,19 @@ public class HeroPowerStatsConnector {
     private final HeroService heroService;
 
     @Transactional
-    public Hero createHero(CreateHeroRequest createHeroRequest) {
-        return new Hero(createHeroRequest, powerStatsService.create(
+    public UUID createHero(CreateHeroRequest createHeroRequest) {
+        var powerStats = powerStatsService.create(
                 new PowerStats(null, createHeroRequest.getStrength(),
                         createHeroRequest.getAgility(),
                         createHeroRequest.getDexterity(),
-                        createHeroRequest.getIntelligence(), Instant.now(), Instant.now())));
+                        createHeroRequest.getIntelligence(), Instant.now(), Instant.now()));
+        return heroService.create(createHeroRequest, powerStats);
     }
 
     @Transactional
     public void updateHeroAndStats(UUID id, UpdateHeroRequest updateHeroRequest) throws DuplicateKeyException, EmptyResultDataAccessException {
-        powerStatsService.updateById(heroService.getPowerStatsIdFromCurrentHero(id), updateHeroRequest);
+        UUID powerStatsId = heroService.getPowerStatsIdFromCurrentHero(id);
+        powerStatsService.updateById(powerStatsId, updateHeroRequest);
         heroService.updateById(id, updateHeroRequest);
     }
 

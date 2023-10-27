@@ -9,6 +9,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
 
+import java.util.UUID;
+
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("it")
 public class HeroServiceIT {
@@ -21,7 +23,7 @@ public class HeroServiceIT {
 
     @Test
     public void createHeroWithAllRequiredArguments() {
-        heroService.create(createHeroRequest());
+        heroService.create(createHeroRequest(), UUID.randomUUID());
     }
 
     private CreateHeroRequest createHeroRequest() {

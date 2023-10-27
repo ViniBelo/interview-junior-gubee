@@ -28,12 +28,8 @@ public class HeroService {
     private final HeroRepository heroRepository;
 
     @Transactional
-    public UUID create(CreateHeroRequest createHeroRequest) {
-        return heroRepository.create(new Hero(createHeroRequest, powerStatsService.create(
-                new PowerStats(null, createHeroRequest.getStrength(),
-                        createHeroRequest.getAgility(),
-                        createHeroRequest.getDexterity(),
-                        createHeroRequest.getIntelligence(), Instant.now(), Instant.now()))));
+    public UUID create(CreateHeroRequest createHeroRequest, UUID powerStatsId) {
+        return heroRepository.create(new Hero(createHeroRequest, powerStatsId));
     }
 
     @Transactional

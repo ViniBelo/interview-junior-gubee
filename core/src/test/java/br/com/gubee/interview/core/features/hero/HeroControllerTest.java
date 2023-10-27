@@ -41,7 +41,7 @@ class HeroControllerTest {
 
     @BeforeEach
     public void initTest() {
-        when(heroService.create(any())).thenReturn(UUID.randomUUID());
+        when(heroPowerStatsConnector.createHero(any())).thenReturn(UUID.randomUUID());
     }
 
     @Test
@@ -57,7 +57,7 @@ class HeroControllerTest {
 
         //then
         resultActions.andExpect(status().isCreated()).andExpect(header().exists("Location"));
-        verify(heroService, times(1)).create(any());
+        verify(heroPowerStatsConnector, times(1)).createHero(any());
     }
 
     private CreateHeroRequest createHeroRequest() {
