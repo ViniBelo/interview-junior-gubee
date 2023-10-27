@@ -4,16 +4,21 @@ import br.com.gubee.interview.model.Hero;
 import br.com.gubee.interview.model.PowerStats;
 import br.com.gubee.interview.model.request.UpdateHeroRequest;
 import br.com.gubee.interview.model.response.CreateHeroResponse;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class HeroRepositoryStub {
+public class HeroRepositoryStub extends HeroRepository {
 
     Map<UUID, Hero> heroesMappedById = new HashMap<>();
     Map<String, Hero> heroesMappedByName = new HashMap<>();
     Map<UUID, PowerStats> powerStats = new HashMap<>();
+
+    public HeroRepositoryStub(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
+        super(namedParameterJdbcTemplate);
+    }
 
     public UUID create(Hero hero) {
         try {

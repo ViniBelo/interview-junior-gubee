@@ -1,3 +1,4 @@
 br\com\gubee\interview\core\features\hero\HeroRepositoryStub.class
+br\com\gubee\interview\core\features\hero\HeroServiceTest.class
 br\com\gubee\interview\core\features\hero\HeroServiceIT.class
 br\com\gubee\interview\core\features\hero\HeroControllerTest.class

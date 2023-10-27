@@ -32,6 +32,7 @@ public class HeroServiceIT {
     public void createHeroWithAllRequiredArguments() {
         //given
         Hero hero = new Hero(createHeroRequest(), UUID.randomUUID());
+
         //when
         heroService.create(createHeroRequest(), UUID.randomUUID());
 
@@ -54,23 +55,39 @@ public class HeroServiceIT {
     @Test
     public void findHeroById() {
         //given
+        CreateHeroResponse heroResponse = createHeroResponse();
+
         //when
         heroService.findById(UUID.randomUUID());
 
         //then
         verify(heroRepository, times(1)).findById(UUID.randomUUID());
-        Assertions.assertEquals(heroService.findById(UUID.randomUUID()), createHeroResponse());
+        Assertions.assertEquals(heroService.findById(UUID.randomUUID()), heroResponse);
     }
 
     @Test
     public void findByName() {
         //given
+        CreateHeroResponse heroResponse = createHeroResponse();
+
         //when
-        heroService.findByName(createHeroResponse().getName());
+        heroService.findByName(heroResponse.getName());
 
         //then
-        verify(heroRepository, times(1)).findByName(createHeroResponse().getName());
-        Assertions.assertEquals(heroService.findByName(createHeroRequest().getName()), createHeroResponse());
+        verify(heroRepository, times(1)).findByName(heroResponse.getName());
+        Assertions.assertEquals(heroService.findByName(createHeroRequest().getName()), heroResponse);
+    }
+
+    @Test
+    public void deleteHero() {
+        //given
+        CreateHeroResponse heroResponse = createHeroResponse();
+
+        //when
+        heroService.deleteHero(UUID.randomUUID());
+
+        //then
+        verify(heroRepository, times(1)).delete(UUID.randomUUID());
     }
 
     private CreateHeroResponse createHeroResponse() {
