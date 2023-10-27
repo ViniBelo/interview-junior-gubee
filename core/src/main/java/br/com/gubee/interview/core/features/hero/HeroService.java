@@ -1,8 +1,6 @@
 package br.com.gubee.interview.core.features.hero;
 
-import br.com.gubee.interview.core.features.powerstats.PowerStatsService;
 import br.com.gubee.interview.model.Hero;
-import br.com.gubee.interview.model.PowerStats;
 import br.com.gubee.interview.model.request.CreateHeroRequest;
 import br.com.gubee.interview.model.request.UpdateHeroRequest;
 import br.com.gubee.interview.model.response.ComparePowerStatsResponse;
@@ -10,21 +8,15 @@ import br.com.gubee.interview.model.response.CreateHeroResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.Instant;
 import java.util.UUID;
-
-import static org.springframework.http.ResponseEntity.ok;
 
 @Service
 @RequiredArgsConstructor
 public class HeroService {
 
-    private final PowerStatsService powerStatsService;
     private final HeroRepository heroRepository;
 
     @Transactional
