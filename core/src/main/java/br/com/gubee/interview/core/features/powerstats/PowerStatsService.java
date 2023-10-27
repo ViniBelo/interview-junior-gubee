@@ -24,13 +24,8 @@ public class PowerStatsService {
     }
 
     @Transactional
-    public ResponseEntity<Object> updateById(UUID id, UpdateHeroRequest updateHeroRequest) {
-        try {
-            powerStatsRepository.updatePowerStatsById(id, updateHeroRequest);
-            return new ResponseEntity<>("Hero updated successfully", HttpStatus.OK);
-        } catch (EmptyResultDataAccessException e) {
-            return new ResponseEntity<>("Hero not found", HttpStatus.NOT_FOUND);
-        }
+    public void updateById(UUID id, UpdateHeroRequest updateHeroRequest) throws EmptyResultDataAccessException {
+        powerStatsRepository.updatePowerStatsById(id, updateHeroRequest);
     }
 
     @Transactional

@@ -37,35 +37,18 @@ public class HeroService {
     }
 
     @Transactional
-    public ResponseEntity<Object> findById(UUID id) {
-        try {
-            CreateHeroResponse createHeroResponse = heroRepository.findById(id);
-            return ok(createHeroResponse);
-        } catch (EmptyResultDataAccessException e) {
-            return new ResponseEntity<>("Hero not found!", HttpStatus.NOT_FOUND);
-        }
+    public CreateHeroResponse findById(UUID id) throws EmptyResultDataAccessException {
+        return heroRepository.findById(id);
     }
 
     @Transactional
-    public ResponseEntity<Object> findByName(String name) {
-        try {
-            CreateHeroResponse createHeroResponse = heroRepository.findByName(name);
-            return ok().body(createHeroResponse);
-        } catch (EmptyResultDataAccessException e) {
-            return ok().build();
-        }
+    public CreateHeroResponse findByName(String name) throws EmptyResultDataAccessException {
+        return heroRepository.findByName(name);
     }
 
     @Transactional
-    public ResponseEntity<Object> updateById(UUID id, UpdateHeroRequest updateHeroRequest) {
-        try {
-            heroRepository.updateHero(id, updateHeroRequest);
-            return new ResponseEntity<>("Hero updated successfully", HttpStatus.OK);
-        } catch (DuplicateKeyException e) {
-            return new ResponseEntity<>("Duplicated Hero name", HttpStatus.BAD_REQUEST);
-        } catch (EmptyResultDataAccessException e) {
-            return new ResponseEntity<>("Hero not found", HttpStatus.NOT_FOUND);
-        }
+    public void updateById(UUID id, UpdateHeroRequest updateHeroRequest) throws DuplicateKeyException, EmptyResultDataAccessException {
+        heroRepository.updateHero(id, updateHeroRequest);
     }
 
     @Transactional
@@ -74,33 +57,21 @@ public class HeroService {
     }
 
     @Transactional
-    public ResponseEntity<Object> deleteHero(UUID id) {
-        try {
-            heroRepository.delete(id);
-            return new ResponseEntity<>(HttpStatus.OK);
-        } catch (EmptyResultDataAccessException e) {
-            return new ResponseEntity<>("Hero not found", HttpStatus.NOT_FOUND);
-        }
+    public void deleteHero(UUID id) throws EmptyResultDataAccessException {
+        heroRepository.delete(id);
     }
 
     @Transactional
-    public ResponseEntity<Object> compareHeroes(UUID heroId1, UUID heroId2) {
-        try {
-            CreateHeroResponse hero1 = heroRepository.findById(heroId1);
-            CreateHeroResponse hero2 = heroRepository.findById(heroId2);
-
-            ComparePowerStatsResponse heroResponse = new ComparePowerStatsResponse(
-                    heroId1,
-                    heroId2,
-                    hero2.getStrength() - hero1.getStrength(),
-                    hero2.getAgility() - hero1.getAgility(),
-                    hero2.getDexterity() - hero1.getDexterity(),
-                    hero2.getIntelligence() - hero1.getIntelligence()
-                    );
-
-            return ResponseEntity.ok().body(heroResponse);
-        } catch (EmptyResultDataAccessException e) {
-            return new ResponseEntity<>("Hero not found", HttpStatus.NOT_FOUND);
-        }
+    public ComparePowerStatsResponse compareHeroes(UUID heroId1, UUID heroId2) throws EmptyResultDataAccessException {
+        CreateHeroResponse hero1 = heroRepository.findById(heroId1);
+        CreateHeroResponse hero2 = heroRepository.findById(heroId2);
+        return new ComparePowerStatsResponse(
+                heroId1,
+                heroId2,
+                hero2.getStrength() - hero1.getStrength(),
+                hero2.getAgility() - hero1.getAgility(),
+                hero2.getDexterity() - hero1.getDexterity(),
+                hero2.getIntelligence() - hero1.getIntelligence()
+                );
     }
 }

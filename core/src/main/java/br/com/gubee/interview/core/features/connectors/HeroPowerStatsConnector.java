@@ -7,6 +7,8 @@ import br.com.gubee.interview.model.PowerStats;
 import br.com.gubee.interview.model.request.CreateHeroRequest;
 import br.com.gubee.interview.model.request.UpdateHeroRequest;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.DuplicateKeyException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -33,26 +35,15 @@ public class HeroPowerStatsConnector {
     }
 
     @Transactional
-    public ResponseEntity<Object> updateHeroAndStats(UUID id, UpdateHeroRequest updateHeroRequest) {
-        try {
-            powerStatsService.updateById(heroService.getPowerStatsIdFromCurrentHero(id), updateHeroRequest);
-            return heroService.updateById(id, updateHeroRequest);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return new ResponseEntity<>("Fail updating hero", HttpStatus.BAD_REQUEST);
-        }
+    public void updateHeroAndStats(UUID id, UpdateHeroRequest updateHeroRequest) throws DuplicateKeyException, EmptyResultDataAccessException {
+        powerStatsService.updateById(heroService.getPowerStatsIdFromCurrentHero(id), updateHeroRequest);
+        heroService.updateById(id, updateHeroRequest);
     }
 
     @Transactional
-    public ResponseEntity<Object> deleteHero(UUID id) {
-        try {
-            var powerStatsId = heroService.getPowerStatsIdFromCurrentHero(id);
-            heroService.deleteHero(id);
-            powerStatsService.deletePowerStats(powerStatsId);
-            return ResponseEntity.ok().build();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return new ResponseEntity<>("Fail updating hero", HttpStatus.BAD_REQUEST);
-        }
+    public void deleteHero(UUID id) throws EmptyResultDataAccessException {
+        var powerStatsId = heroService.getPowerStatsIdFromCurrentHero(id);
+        heroService.deleteHero(id);
+        powerStatsService.deletePowerStats(powerStatsId);
     }
 }
