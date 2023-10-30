@@ -22,7 +22,8 @@ public class HeroRepositoryStub extends HeroRepository {
 
     public UUID create(Hero hero) {
         try {
-            heroesMappedById.put(hero.getId(), hero);
+            UUID heroId = UUID.randomUUID();
+            heroesMappedById.put(heroId, hero);
             heroesMappedByName.put(hero.getName(), hero);
             powerStats.put(UUID.randomUUID(), new PowerStats(
                     null,
@@ -33,7 +34,7 @@ public class HeroRepositoryStub extends HeroRepository {
                     null,
                     null
             ));
-            return hero.getId();
+            return heroId;
         } catch (NullPointerException e) {
             return null;
         }
