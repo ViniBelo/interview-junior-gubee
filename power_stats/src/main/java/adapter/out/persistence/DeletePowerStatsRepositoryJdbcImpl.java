@@ -10,7 +10,7 @@ import java.util.UUID;
 
 @Repository
 @RequiredArgsConstructor
-public class DeletePowerStatsRepository implements DeletePowerStatsPort {
+public class DeletePowerStatsRepositoryJdbcImpl implements DeletePowerStatsPort {
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
     private static final String DELETE_POWER_STATS_QUERY =
             "DELETE " +

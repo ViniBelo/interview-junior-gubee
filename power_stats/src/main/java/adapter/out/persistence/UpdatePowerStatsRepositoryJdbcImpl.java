@@ -11,7 +11,7 @@ import java.util.UUID;
 
 @Repository
 @RequiredArgsConstructor
-public class UpdatePowerStatsRepository implements UpdatePowerStatsPort {
+public class UpdatePowerStatsRepositoryJdbcImpl implements UpdatePowerStatsPort {
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
     public static final String UPDATE_POWER_STATS_QUERY =
             "UPDATE power_stats " +

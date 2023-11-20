@@ -1,6 +1,7 @@
 package br.com.gubee.interview.core.features.connectors;
 
-import application.port.in.PowerStatsUseCases;
+import application.port.in.CreatePowerStatsUseCase;
+import application.port.in.UpdatePowerStatsUseCase;
 import br.com.gubee.interview.core.features.hero.HeroService;
 import br.com.gubee.interview.model.request.CreateHeroRequest;
 import br.com.gubee.interview.model.request.UpdateHeroRequest;
@@ -16,7 +17,8 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class HeroPowerStatsConnector {
 
-    private final PowerStatsUseCases powerStatsService;
+    private final CreatePowerStatsUseCase powerStatsService;
+    private final UpdatePowerStatsUseCase powerStatsService;
     private final HeroService heroService;
 
     @Transactional
@@ -24,6 +26,7 @@ public class HeroPowerStatsConnector {
         var powerStats = powerStatsService.create(createHeroRequest);
         return heroService.create(createHeroRequest, powerStats);
     }
+
 
     @Transactional
     public void updateHeroAndStats(UUID id, UpdateHeroRequest updateHeroRequest) throws DuplicateKeyException, EmptyResultDataAccessException {
