@@ -16,7 +16,7 @@ import java.util.UUID;
 public class CreatePowerStatsService implements CreatePowerStatsUseCase {
 
     private final CreatePowerStatsPort createPowerStatsPort;
-    @Transactional
+    @Override
     public UUID create(CreateHeroRequest createHeroRequest) {
         return createPowerStatsPort.createPowerStats(
                 new PowerStats(null, createHeroRequest.getStrength(),

@@ -15,7 +15,7 @@ import java.util.UUID;
 public class UpdatePowerStatsService implements UpdatePowerStatsUseCase {
 
     private final UpdatePowerStatsPort updatePowerStatsPort;
-    @Transactional
+    @Override
     public void updateById(UUID id, UpdateHeroRequest updateHeroRequest) throws EmptyResultDataAccessException {
         updatePowerStatsPort.updatePowerStatsById(id, updateHeroRequest);
     }
