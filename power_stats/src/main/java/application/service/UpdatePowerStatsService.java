@@ -14,9 +14,9 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class UpdatePowerStatsService implements UpdatePowerStatsUseCase {
 
-    private final UpdatePowerStatsPort updatePowerStatsRepository;
+    private final UpdatePowerStatsPort updatePowerStatsPort;
     @Transactional
     public void updateById(UUID id, UpdateHeroRequest updateHeroRequest) throws EmptyResultDataAccessException {
-        updatePowerStatsRepository.updatePowerStatsById(id, updateHeroRequest);
+        updatePowerStatsPort.updatePowerStatsById(id, updateHeroRequest);
     }
 }

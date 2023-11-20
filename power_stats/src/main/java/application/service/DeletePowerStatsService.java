@@ -12,9 +12,9 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class DeletePowerStatsService implements DeletePowerStatsUseCase {
 
-    private final DeletePowerStatsPort deletePowerStatsRepository;
+    private final DeletePowerStatsPort deletePowerStatsPort;
     @Transactional
     public void deletePowerStats(UUID id) {
-        deletePowerStatsRepository.deletePowerStatsById(id);
+        deletePowerStatsPort.deletePowerStatsById(id);
     }
 }

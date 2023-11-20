@@ -2,13 +2,9 @@ package application.service;
 
 import application.port.in.CreatePowerStatsUseCase;
 import application.port.out.CreatePowerStatsPort;
-import application.port.out.DeletePowerStatsPort;
-import application.port.out.UpdatePowerStatsPort;
 import br.com.gubee.interview.model.request.CreateHeroRequest;
 import domain.PowerStats;
-import br.com.gubee.interview.model.request.UpdateHeroRequest;
 import lombok.RequiredArgsConstructor;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,15 +15,17 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class CreatePowerStatsService implements CreatePowerStatsUseCase {
 
-    private final CreatePowerStatsPort createPowerStatsRepository;
+    private final CreatePowerStatsPort createPowerStatsPort;
     @Transactional
     public UUID create(CreateHeroRequest createHeroRequest) {
-        return createPowerStatsRepository.createPowerStats(
+        return createPowerStatsPort.createPowerStats(
                 new PowerStats(null, createHeroRequest.getStrength(),
                         createHeroRequest.getAgility(),
                         createHeroRequest.getDexterity(),
                         createHeroRequest.getIntelligence(),
                         Instant.now(),
-                        Instant.now()));
+                        Instant.now()
+                )
+        );
     }
 }
