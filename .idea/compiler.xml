@@ -10,16 +10,22 @@
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar" />
         </processorPath>
-        <module name="interview-model" />
         <module name="interview-core" />
+        <module name="interview-model" />
+        <module name="interview-power_stats" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="power_stats" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="interview" options="-parameters" />
       <module name="interview-core" options="-parameters" />
       <module name="interview-model" options="-parameters" />
+      <module name="interview-power_stats" options="-parameters" />
+      <module name="power_stats" options="-parameters" />
     </option>
   </component>
 </project>

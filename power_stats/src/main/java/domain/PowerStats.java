@@ -1,4 +1,4 @@
-package br.com.gubee.interview.model;
+package domain;
 
 import br.com.gubee.interview.model.request.CreateHeroRequest;
 import lombok.AllArgsConstructor;
