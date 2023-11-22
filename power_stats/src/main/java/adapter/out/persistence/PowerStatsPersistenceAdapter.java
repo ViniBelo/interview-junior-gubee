@@ -1,11 +1,10 @@
-package adapter.out;
+package adapter.out.persistence;
 
-import adapter.out.persistence.PowerStatsRepository;
 import application.port.out.CreatePowerStatsPort;
 import application.port.out.DeletePowerStatsPort;
 import application.port.out.UpdatePowerStatsPort;
-import br.com.gubee.interview.model.request.UpdateHeroRequest;
-import domain.PowerStats;
+import domain.model.PowerStats;
+import domain.model.WebPowerStats;
 import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,7 +28,7 @@ public class PowerStatsPersistenceAdapter implements CreatePowerStatsPort, Updat
 
     @Override
     @Transactional
-    public void updatePowerStatsById(UUID id, UpdateHeroRequest updateHeroRequest) {
-        powerStatsRepository.updatePowerStatsById(id, updateHeroRequest);
+    public void updatePowerStatsById(UUID id, WebPowerStats webPowerStats) {
+        powerStatsRepository.updatePowerStatsById(id, webPowerStats);
     }
 }

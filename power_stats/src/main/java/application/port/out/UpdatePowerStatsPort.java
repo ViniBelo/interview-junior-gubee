@@ -1,9 +1,9 @@
 package application.port.out;
 
-import br.com.gubee.interview.model.request.UpdateHeroRequest;
+import domain.model.WebPowerStats;
 
 import java.util.UUID;
 
 public interface UpdatePowerStatsPort {
-    public void updatePowerStatsById(UUID id, UpdateHeroRequest updateHeroRequest);
+    public void updatePowerStatsById(UUID id, WebPowerStats webPowerStats);
 }

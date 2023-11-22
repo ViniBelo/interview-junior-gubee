@@ -1,6 +1,6 @@
 package application.port.out;
 
-import domain.PowerStats;
+import domain.model.PowerStats;
 
 import java.util.UUID;
 

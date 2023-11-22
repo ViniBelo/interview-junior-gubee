@@ -1,10 +1,8 @@
 package adapter.out.persistence;
 
-import application.port.out.CreatePowerStatsPort;
-import application.port.out.DeletePowerStatsPort;
-import application.port.out.UpdatePowerStatsPort;
 import br.com.gubee.interview.model.request.UpdateHeroRequest;
-import domain.PowerStats;
+import domain.model.PowerStats;
+import domain.model.WebPowerStats;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -48,13 +46,13 @@ public class PowerStatsRepositoryJdbcImpl implements PowerStatsRepository{
                     "intelligence = :intelligence " +
                     "WHERE id = :id";
 
-    public void updatePowerStatsById(UUID id, UpdateHeroRequest updateHeroRequest) {
+    public void updatePowerStatsById(UUID id, WebPowerStats webPowerStats) {
         final Map<String, Object> params = Map.of(
                 "id", id,
-                "strength", updateHeroRequest.getStrength(),
-                "agility", updateHeroRequest.getAgility(),
-                "dexterity", updateHeroRequest.getDexterity(),
-                "intelligence", updateHeroRequest.getIntelligence()
+                "strength", webPowerStats.getStrength(),
+                "agility", webPowerStats.getAgility(),
+                "dexterity", webPowerStats.getDexterity(),
+                "intelligence", webPowerStats.getIntelligence()
         );
         namedParameterJdbcTemplate.update(
                 UPDATE_POWER_STATS_QUERY,

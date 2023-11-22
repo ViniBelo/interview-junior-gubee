@@ -1,5 +1,6 @@
 package br.com.gubee.interview.core.features.connectors;
 
+import adapter.in.PowerStatsAdapter;
 import application.port.in.CreatePowerStatsUseCase;
 import application.port.in.DeletePowerStatsUseCase;
 import application.port.in.UpdatePowerStatsUseCase;
@@ -18,14 +19,12 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class HeroPowerStatsConnector {
 
-    private final CreatePowerStatsUseCase createPowerStatsUseCase;
-    private final UpdatePowerStatsUseCase updatePowerStatsUseCase;
-    private final DeletePowerStatsUseCase deletePowerStatsUseCase;
+    private final PowerStatsAdapter powerStatsAdapter;
     private final HeroService heroService;
 
     @Transactional
     public UUID createHero(CreateHeroRequest createHeroRequest) {
-        var powerStats = createPowerStatsUseCase.create(createHeroRequest);
+        var powerStats = powerStatsAdapter.create(createHeroRequest);
         return heroService.create(createHeroRequest, powerStats);
     }
 
@@ -33,7 +32,7 @@ public class HeroPowerStatsConnector {
     @Transactional
     public void updateHeroAndStats(UUID id, UpdateHeroRequest updateHeroRequest) throws DuplicateKeyException, EmptyResultDataAccessException {
         UUID powerStatsId = heroService.getPowerStatsIdFromCurrentHero(id);
-        updatePowerStatsUseCase.updateById(powerStatsId, updateHeroRequest);
+        powerStatsAdapter.updateById(powerStatsId, updateHeroRequest);
         heroService.updateById(id, updateHeroRequest);
     }
 
@@ -41,7 +40,7 @@ public class HeroPowerStatsConnector {
     public void deleteHero(UUID id) throws EmptyResultDataAccessException {
         var powerStatsId = heroService.getPowerStatsIdFromCurrentHero(id);
         heroService.deleteHero(id);
-        deletePowerStatsUseCase.deletePowerStats(powerStatsId);
+        powerStatsAdapter.deletePowerStats(powerStatsId);
     }
 }
 

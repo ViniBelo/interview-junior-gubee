@@ -1,10 +1,9 @@
 package application.port.in;
 
-import br.com.gubee.interview.model.request.CreateHeroRequest;
-import br.com.gubee.interview.model.request.UpdateHeroRequest;
+import domain.model.WebPowerStats;
 
 import java.util.UUID;
 
 public interface CreatePowerStatsUseCase {
-    public UUID create(CreateHeroRequest createHeroRequest);
+    public UUID create(WebPowerStats createHeroRequest);
 }

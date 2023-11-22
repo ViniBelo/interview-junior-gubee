@@ -1,6 +1,7 @@
 package br.com.gubee.interview.core.configuration;
 
-import adapter.out.PowerStatsPersistenceAdapter;
+import adapter.in.PowerStatsAdapter;
+import adapter.out.persistence.PowerStatsPersistenceAdapter;
 import adapter.out.persistence.PowerStatsRepositoryJdbcImpl;
 import application.port.in.CreatePowerStatsUseCase;
 import application.port.in.DeletePowerStatsUseCase;
@@ -45,5 +46,18 @@ public class ContextConfiguration {
     @Bean
     public DeletePowerStatsUseCase deletePowerStatsUseCase (NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
         return new DeletePowerStatsService(deletePowerStatsPort(namedParameterJdbcTemplate));
+    }
+
+    @Bean
+    public PowerStatsAdapter powerStatsAdapter (
+            CreatePowerStatsUseCase createPowerStatsUseCase,
+            UpdatePowerStatsUseCase updatePowerStatsUseCase,
+            DeletePowerStatsUseCase deletePowerStatsUseCase
+            ) {
+        return new PowerStatsAdapter(
+                createPowerStatsUseCase,
+                updatePowerStatsUseCase,
+                deletePowerStatsUseCase
+        );
     }
 }

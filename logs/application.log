@@ -435,3 +435,30 @@ Action:
 
 Consider defining a bean of type 'application.port.in.UpdatePowerStatsUseCase' in your configuration.
  
+[INFO ] [2023-11-22T10:25:27,243] [background-preinit] [Version] HV000001: Hibernate Validator 6.2.3.Final 
+[INFO ] [2023-11-22T10:25:27,265] [main] [Application] Starting Application using Java 17.0.8 on Vini-Desktop with PID 28228 (C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior\core\target\classes started by vinia in C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior) 
+[INFO ] [2023-11-22T10:25:27,268] [main] [Application] No active profile set, falling back to 1 default profile: "default" 
+[INFO ] [2023-11-22T10:25:27,589] [main] [RepositoryConfigurationDelegate] Bootstrapping Spring Data JDBC repositories in DEFAULT mode. 
+[INFO ] [2023-11-22T10:25:27,597] [main] [RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 4 ms. Found 0 JDBC repository interfaces. 
+[INFO ] [2023-11-22T10:25:27,856] [main] [TomcatWebServer] Tomcat initialized with port(s): 8080 (http) 
+[INFO ] [2023-11-22T10:25:27,866] [main] [Http11NioProtocol] The ["http-nio-8080"] connector has been configured to support HTTP upgrade to [h2c] 
+[INFO ] [2023-11-22T10:25:27,867] [main] [Http11NioProtocol] Initializing ProtocolHandler ["http-nio-8080"] 
+[INFO ] [2023-11-22T10:25:27,867] [main] [StandardService] Starting service [Tomcat] 
+[INFO ] [2023-11-22T10:25:27,867] [main] [StandardEngine] Starting Servlet engine: [Apache Tomcat/9.0.62] 
+[INFO ] [2023-11-22T10:25:27,964] [main] [[/]] Initializing Spring embedded WebApplicationContext 
+[INFO ] [2023-11-22T10:25:27,964] [main] [ServletWebServerApplicationContext] Root WebApplicationContext: initialization completed in 668 ms 
+[INFO ] [2023-11-22T10:25:28,055] [main] [HikariDataSource] HikariPool-1 - Starting... 
+[INFO ] [2023-11-22T10:25:28,108] [main] [HikariDataSource] HikariPool-1 - Start completed. 
+[INFO ] [2023-11-22T10:25:28,120] [main] [VersionPrinter] Flyway Community Edition 8.0.5 by Redgate 
+[INFO ] [2023-11-22T10:25:28,121] [main] [BaseDatabaseType] Database: jdbc:postgresql://localhost:5432/postgres (PostgreSQL 13.2) 
+[INFO ] [2023-11-22T10:25:28,149] [main] [DbValidate] Successfully validated 2 migrations (execution time 00:00.014s) 
+[INFO ] [2023-11-22T10:25:28,158] [main] [DbMigrate] Current version of schema "interview_service": 1.1 
+[INFO ] [2023-11-22T10:25:28,159] [main] [DbMigrate] Schema "interview_service" is up to date. No migration necessary. 
+[INFO ] [2023-11-22T10:25:28,458] [main] [Http11NioProtocol] Starting ProtocolHandler ["http-nio-8080"] 
+[INFO ] [2023-11-22T10:25:28,471] [main] [TomcatWebServer] Tomcat started on port(s): 8080 (http) with context path '' 
+[INFO ] [2023-11-22T10:25:28,477] [main] [Application] Started Application in 1.417 seconds (JVM running for 2.03) 
+[INFO ] [2023-11-22T10:25:52,847] [http-nio-8080-exec-1] [[/]] Initializing Spring DispatcherServlet 'dispatcherServlet' 
+[INFO ] [2023-11-22T10:25:52,847] [http-nio-8080-exec-1] [DispatcherServlet] Initializing Servlet 'dispatcherServlet' 
+[INFO ] [2023-11-22T10:25:52,847] [http-nio-8080-exec-1] [DispatcherServlet] Completed initialization in 0 ms 
+[INFO ] [2023-11-22T11:20:08,586] [SpringApplicationShutdownHook] [HikariDataSource] HikariPool-1 - Shutdown initiated... 
+[INFO ] [2023-11-22T11:20:08,593] [SpringApplicationShutdownHook] [HikariDataSource] HikariPool-1 - Shutdown completed. 
