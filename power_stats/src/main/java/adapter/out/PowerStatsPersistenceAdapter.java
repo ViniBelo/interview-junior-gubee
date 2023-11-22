@@ -1,5 +1,6 @@
 package adapter.out;
 
+import adapter.out.persistence.PowerStatsRepository;
 import application.port.out.CreatePowerStatsPort;
 import application.port.out.DeletePowerStatsPort;
 import application.port.out.UpdatePowerStatsPort;
@@ -12,25 +13,23 @@ import java.util.UUID;
 
 @RequiredArgsConstructor
 public class PowerStatsPersistenceAdapter implements CreatePowerStatsPort, UpdatePowerStatsPort, DeletePowerStatsPort{
-    private final CreatePowerStatsPort createPowerStatsPort;
-    private final UpdatePowerStatsPort updatePowerStatsPort;
-    private final DeletePowerStatsPort deletePowerStatsPort;
+    private final PowerStatsRepository powerStatsRepository;
 
     @Override
     @Transactional
     public UUID createPowerStats(PowerStats powerStats) {
-        return createPowerStatsPort.createPowerStats(powerStats);
+        return powerStatsRepository.createPowerStats(powerStats);
     }
 
     @Override
     @Transactional
     public void deletePowerStatsById(UUID id) {
-        deletePowerStatsPort.deletePowerStatsById(id);
+        powerStatsRepository.deletePowerStatsById(id);
     }
 
     @Override
     @Transactional
     public void updatePowerStatsById(UUID id, UpdateHeroRequest updateHeroRequest) {
-        updatePowerStatsPort.updatePowerStatsById(id, updateHeroRequest);
+        powerStatsRepository.updatePowerStatsById(id, updateHeroRequest);
     }
 }

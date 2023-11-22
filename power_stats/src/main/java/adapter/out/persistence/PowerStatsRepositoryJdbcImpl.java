@@ -15,7 +15,7 @@ import java.util.UUID;
 
 @Repository
 @RequiredArgsConstructor
-public class PowerStatsRepositoryJdbcImpl {
+public class PowerStatsRepositoryJdbcImpl implements PowerStatsRepository{
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
     private static final String CREATE_POWER_STATS_QUERY = "INSERT INTO power_stats" +
             " (strength, agility, dexterity, intelligence)" +

@@ -6,7 +6,6 @@ import br.com.gubee.interview.model.request.CreateHeroRequest;
 import domain.PowerStats;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
 import java.util.UUID;
