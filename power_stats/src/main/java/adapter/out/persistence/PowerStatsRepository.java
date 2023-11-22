@@ -7,7 +7,7 @@ import domain.model.WebPowerStats;
 import java.util.UUID;
 
 public interface PowerStatsRepository {
-    public UUID createPowerStats(PowerStats powerStats);
-    public void deletePowerStatsById(UUID id);
-    public void updatePowerStatsById(UUID id, WebPowerStats webPowerStats);
+    UUID createPowerStats(PowerStats powerStats);
+    void deletePowerStatsById(UUID id);
+    void updatePowerStatsById(UUID id, WebPowerStats webPowerStats);
 }

@@ -5,12 +5,10 @@ import application.port.out.CreatePowerStatsPort;
 import domain.model.PowerStats;
 import domain.model.WebPowerStats;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 
 import java.time.Instant;
 import java.util.UUID;
 
-@Service
 @RequiredArgsConstructor
 public class CreatePowerStatsService implements CreatePowerStatsUseCase {
 

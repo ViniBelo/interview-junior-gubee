@@ -462,3 +462,202 @@ Consider defining a bean of type 'application.port.in.UpdatePowerStatsUseCase' i
 [INFO ] [2023-11-22T10:25:52,847] [http-nio-8080-exec-1] [DispatcherServlet] Completed initialization in 0 ms 
 [INFO ] [2023-11-22T11:20:08,586] [SpringApplicationShutdownHook] [HikariDataSource] HikariPool-1 - Shutdown initiated... 
 [INFO ] [2023-11-22T11:20:08,593] [SpringApplicationShutdownHook] [HikariDataSource] HikariPool-1 - Shutdown completed. 
+[INFO ] [2023-11-22T14:21:48,083] [background-preinit] [Version] HV000001: Hibernate Validator 6.2.3.Final 
+[INFO ] [2023-11-22T14:21:48,102] [main] [Application] Starting Application using Java 17.0.8 on Vini-Desktop with PID 30672 (C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior\core\target\classes started by vinia in C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior) 
+[INFO ] [2023-11-22T14:21:48,104] [main] [Application] No active profile set, falling back to 1 default profile: "default" 
+[INFO ] [2023-11-22T14:21:48,422] [main] [RepositoryConfigurationDelegate] Bootstrapping Spring Data JDBC repositories in DEFAULT mode. 
+[INFO ] [2023-11-22T14:21:48,430] [main] [RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 4 ms. Found 0 JDBC repository interfaces. 
+[INFO ] [2023-11-22T14:21:48,700] [main] [TomcatWebServer] Tomcat initialized with port(s): 8080 (http) 
+[INFO ] [2023-11-22T14:21:48,710] [main] [Http11NioProtocol] The ["http-nio-8080"] connector has been configured to support HTTP upgrade to [h2c] 
+[INFO ] [2023-11-22T14:21:48,710] [main] [Http11NioProtocol] Initializing ProtocolHandler ["http-nio-8080"] 
+[INFO ] [2023-11-22T14:21:48,710] [main] [StandardService] Starting service [Tomcat] 
+[INFO ] [2023-11-22T14:21:48,711] [main] [StandardEngine] Starting Servlet engine: [Apache Tomcat/9.0.62] 
+[INFO ] [2023-11-22T14:21:48,812] [main] [[/]] Initializing Spring embedded WebApplicationContext 
+[INFO ] [2023-11-22T14:21:48,812] [main] [ServletWebServerApplicationContext] Root WebApplicationContext: initialization completed in 681 ms 
+[INFO ] [2023-11-22T14:21:48,906] [main] [HikariDataSource] HikariPool-1 - Starting... 
+[INFO ] [2023-11-22T14:21:48,962] [main] [HikariDataSource] HikariPool-1 - Start completed. 
+[INFO ] [2023-11-22T14:21:48,974] [main] [VersionPrinter] Flyway Community Edition 8.0.5 by Redgate 
+[INFO ] [2023-11-22T14:21:48,975] [main] [BaseDatabaseType] Database: jdbc:postgresql://localhost:5432/postgres (PostgreSQL 13.2) 
+[INFO ] [2023-11-22T14:21:49,005] [main] [DbValidate] Successfully validated 2 migrations (execution time 00:00.015s) 
+[INFO ] [2023-11-22T14:21:49,016] [main] [DbMigrate] Current version of schema "interview_service": 1.1 
+[INFO ] [2023-11-22T14:21:49,017] [main] [DbMigrate] Schema "interview_service" is up to date. No migration necessary. 
+[INFO ] [2023-11-22T14:21:49,288] [main] [Http11NioProtocol] Starting ProtocolHandler ["http-nio-8080"] 
+[INFO ] [2023-11-22T14:21:49,300] [main] [TomcatWebServer] Tomcat started on port(s): 8080 (http) with context path '' 
+[INFO ] [2023-11-22T14:21:49,305] [main] [Application] Started Application in 1.395 seconds (JVM running for 2.068) 
+[INFO ] [2023-11-22T14:21:54,433] [http-nio-8080-exec-1] [[/]] Initializing Spring DispatcherServlet 'dispatcherServlet' 
+[INFO ] [2023-11-22T14:21:54,433] [http-nio-8080-exec-1] [DispatcherServlet] Initializing Servlet 'dispatcherServlet' 
+[INFO ] [2023-11-22T14:21:54,434] [http-nio-8080-exec-1] [DispatcherServlet] Completed initialization in 1 ms 
+[ERROR] [2023-11-22T14:22:11,512] [http-nio-8080-exec-3] [ExceptionAdvice] Uncaught exception, message=PreparedStatementCallback; SQL [INSERT INTO hero (name, race, power_stats_id) VALUES (?, ?, ?) RETURNING id]; ERROR: duplicate key value violates unique constraint "hero_name_key"
+  Detalhe: Key (name)=(Batman) already exists.; nested exception is org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "hero_name_key"
+  Detalhe: Key (name)=(Batman) already exists. 
+org.springframework.dao.DuplicateKeyException: PreparedStatementCallback; SQL [INSERT INTO hero (name, race, power_stats_id) VALUES (?, ?, ?) RETURNING id]; ERROR: duplicate key value violates unique constraint "hero_name_key"
+  Detalhe: Key (name)=(Batman) already exists.; nested exception is org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "hero_name_key"
+  Detalhe: Key (name)=(Batman) already exists.
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:247) ~[spring-jdbc-5.3.19.jar:5.3.19]
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:70) ~[spring-jdbc-5.3.19.jar:5.3.19]
+	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1541) ~[spring-jdbc-5.3.19.jar:5.3.19]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:667) ~[spring-jdbc-5.3.19.jar:5.3.19]
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:713) ~[spring-jdbc-5.3.19.jar:5.3.19]
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:738) ~[spring-jdbc-5.3.19.jar:5.3.19]
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:794) ~[spring-jdbc-5.3.19.jar:5.3.19]
+	at org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate.queryForObject(NamedParameterJdbcTemplate.java:243) ~[spring-jdbc-5.3.19.jar:5.3.19]
+	at org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate.queryForObject(NamedParameterJdbcTemplate.java:252) ~[spring-jdbc-5.3.19.jar:5.3.19]
+	at org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate.queryForObject(NamedParameterJdbcTemplate.java:268) ~[spring-jdbc-5.3.19.jar:5.3.19]
+	at br.com.gubee.interview.core.features.hero.HeroRepository.create(HeroRepository.java:33) ~[classes/:?]
+	at br.com.gubee.interview.core.features.hero.HeroRepository$$FastClassBySpringCGLIB$$f9c292a4.invoke(<generated>) ~[classes/:?]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.19.jar:5.3.19]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:793) ~[spring-aop-5.3.19.jar:5.3.19]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.19.jar:5.3.19]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.19.jar:5.3.19]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.19.jar:5.3.19]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.19.jar:5.3.19]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.19.jar:5.3.19]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708) ~[spring-aop-5.3.19.jar:5.3.19]
+	at br.com.gubee.interview.core.features.hero.HeroRepository$$EnhancerBySpringCGLIB$$d101c067.create(<generated>) ~[classes/:?]
+	at br.com.gubee.interview.core.features.hero.HeroService.create(HeroService.java:24) ~[classes/:?]
+	at br.com.gubee.interview.core.features.hero.HeroService$$FastClassBySpringCGLIB$$c10dd9b.invoke(<generated>) ~[classes/:?]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.19.jar:5.3.19]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:793) ~[spring-aop-5.3.19.jar:5.3.19]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.19.jar:5.3.19]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.19.jar:5.3.19]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-5.3.19.jar:5.3.19]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388) ~[spring-tx-5.3.19.jar:5.3.19]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.19.jar:5.3.19]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.19.jar:5.3.19]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.19.jar:5.3.19]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708) ~[spring-aop-5.3.19.jar:5.3.19]
+	at br.com.gubee.interview.core.features.hero.HeroService$$EnhancerBySpringCGLIB$$149bede6.create(<generated>) ~[classes/:?]
+	at br.com.gubee.interview.core.features.connectors.HeroPowerStatsConnector.createHero(HeroPowerStatsConnector.java:28) ~[classes/:?]
+	at br.com.gubee.interview.core.features.connectors.HeroPowerStatsConnector$$FastClassBySpringCGLIB$$7166bb85.invoke(<generated>) ~[classes/:?]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.19.jar:5.3.19]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:793) ~[spring-aop-5.3.19.jar:5.3.19]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.19.jar:5.3.19]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.19.jar:5.3.19]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-5.3.19.jar:5.3.19]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388) ~[spring-tx-5.3.19.jar:5.3.19]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.19.jar:5.3.19]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.19.jar:5.3.19]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.19.jar:5.3.19]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708) ~[spring-aop-5.3.19.jar:5.3.19]
+	at br.com.gubee.interview.core.features.connectors.HeroPowerStatsConnector$$EnhancerBySpringCGLIB$$f2da89e4.createHero(<generated>) ~[classes/:?]
+	at br.com.gubee.interview.core.features.hero.HeroController.create(HeroController.java:32) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.19.jar:5.3.19]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.19.jar:5.3.19]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.19.jar:5.3.19]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.19.jar:5.3.19]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.19.jar:5.3.19]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.19.jar:5.3.19]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.19.jar:5.3.19]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.19.jar:5.3.19]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.19.jar:5.3.19]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.19.jar:5.3.19]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.62.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.19.jar:5.3.19]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.62.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.62.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.19.jar:5.3.19]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.19.jar:5.3.19]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.19.jar:5.3.19]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.19.jar:5.3.19]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.19.jar:5.3.19]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.19.jar:5.3.19]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "hero_name_key"
+  Detalhe: Key (name)=(Batman) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2565) ~[postgresql-42.2.27.jar:42.2.27]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2297) ~[postgresql-42.2.27.jar:42.2.27]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:322) ~[postgresql-42.2.27.jar:42.2.27]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:481) ~[postgresql-42.2.27.jar:42.2.27]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:401) ~[postgresql-42.2.27.jar:42.2.27]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:164) ~[postgresql-42.2.27.jar:42.2.27]
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:114) ~[postgresql-42.2.27.jar:42.2.27]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-4.0.3.jar:?]
+	at org.springframework.jdbc.core.JdbcTemplate$1.doInPreparedStatement(JdbcTemplate.java:722) ~[spring-jdbc-5.3.19.jar:5.3.19]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:651) ~[spring-jdbc-5.3.19.jar:5.3.19]
+	... 94 more
+[INFO ] [2023-11-22T14:25:22,166] [SpringApplicationShutdownHook] [HikariDataSource] HikariPool-1 - Shutdown initiated... 
+[INFO ] [2023-11-22T14:25:22,170] [SpringApplicationShutdownHook] [HikariDataSource] HikariPool-1 - Shutdown completed. 
+[INFO ] [2023-11-22T14:40:49,138] [background-preinit] [Version] HV000001: Hibernate Validator 6.2.3.Final 
+[INFO ] [2023-11-22T14:40:49,157] [main] [Application] Starting Application using Java 17.0.8 on Vini-Desktop with PID 19360 (C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior\core\target\classes started by vinia in C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior) 
+[INFO ] [2023-11-22T14:40:49,159] [main] [Application] No active profile set, falling back to 1 default profile: "default" 
+[INFO ] [2023-11-22T14:40:49,497] [main] [RepositoryConfigurationDelegate] Bootstrapping Spring Data JDBC repositories in DEFAULT mode. 
+[INFO ] [2023-11-22T14:40:49,504] [main] [RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 4 ms. Found 0 JDBC repository interfaces. 
+[INFO ] [2023-11-22T14:40:49,773] [main] [TomcatWebServer] Tomcat initialized with port(s): 8080 (http) 
+[INFO ] [2023-11-22T14:40:49,782] [main] [Http11NioProtocol] The ["http-nio-8080"] connector has been configured to support HTTP upgrade to [h2c] 
+[INFO ] [2023-11-22T14:40:49,782] [main] [Http11NioProtocol] Initializing ProtocolHandler ["http-nio-8080"] 
+[INFO ] [2023-11-22T14:40:49,783] [main] [StandardService] Starting service [Tomcat] 
+[INFO ] [2023-11-22T14:40:49,783] [main] [StandardEngine] Starting Servlet engine: [Apache Tomcat/9.0.62] 
+[INFO ] [2023-11-22T14:40:49,847] [main] [[/]] Initializing Spring embedded WebApplicationContext 
+[INFO ] [2023-11-22T14:40:49,847] [main] [ServletWebServerApplicationContext] Root WebApplicationContext: initialization completed in 663 ms 
+[INFO ] [2023-11-22T14:40:49,940] [main] [HikariDataSource] HikariPool-1 - Starting... 
+[INFO ] [2023-11-22T14:40:49,993] [main] [HikariDataSource] HikariPool-1 - Start completed. 
+[INFO ] [2023-11-22T14:40:50,005] [main] [VersionPrinter] Flyway Community Edition 8.0.5 by Redgate 
+[INFO ] [2023-11-22T14:40:50,005] [main] [BaseDatabaseType] Database: jdbc:postgresql://localhost:5432/postgres (PostgreSQL 13.2) 
+[INFO ] [2023-11-22T14:40:50,035] [main] [DbValidate] Successfully validated 2 migrations (execution time 00:00.015s) 
+[INFO ] [2023-11-22T14:40:50,045] [main] [DbMigrate] Current version of schema "interview_service": 1.1 
+[INFO ] [2023-11-22T14:40:50,047] [main] [DbMigrate] Schema "interview_service" is up to date. No migration necessary. 
+[INFO ] [2023-11-22T14:40:50,337] [main] [Http11NioProtocol] Starting ProtocolHandler ["http-nio-8080"] 
+[INFO ] [2023-11-22T14:40:50,349] [main] [TomcatWebServer] Tomcat started on port(s): 8080 (http) with context path '' 
+[INFO ] [2023-11-22T14:40:50,354] [main] [Application] Started Application in 1.394 seconds (JVM running for 2.005) 
+[INFO ] [2023-11-22T14:41:01,440] [http-nio-8080-exec-1] [[/]] Initializing Spring DispatcherServlet 'dispatcherServlet' 
+[INFO ] [2023-11-22T14:41:01,440] [http-nio-8080-exec-1] [DispatcherServlet] Initializing Servlet 'dispatcherServlet' 
+[INFO ] [2023-11-22T14:41:01,441] [http-nio-8080-exec-1] [DispatcherServlet] Completed initialization in 1 ms 
+[INFO ] [2023-11-22T14:41:06,235] [SpringApplicationShutdownHook] [HikariDataSource] HikariPool-1 - Shutdown initiated... 
+[INFO ] [2023-11-22T14:41:06,241] [SpringApplicationShutdownHook] [HikariDataSource] HikariPool-1 - Shutdown completed. 
+[INFO ] [2023-11-22T14:44:30,686] [background-preinit] [Version] HV000001: Hibernate Validator 6.2.3.Final 
+[INFO ] [2023-11-22T14:44:30,709] [main] [Application] Starting Application using Java 17.0.8 on Vini-Desktop with PID 17904 (C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior\core\target\classes started by vinia in C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior) 
+[INFO ] [2023-11-22T14:44:30,711] [main] [Application] No active profile set, falling back to 1 default profile: "default" 
+[INFO ] [2023-11-22T14:44:31,037] [main] [RepositoryConfigurationDelegate] Bootstrapping Spring Data JDBC repositories in DEFAULT mode. 
+[INFO ] [2023-11-22T14:44:31,046] [main] [RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 6 ms. Found 0 JDBC repository interfaces. 
+[INFO ] [2023-11-22T14:44:31,316] [main] [TomcatWebServer] Tomcat initialized with port(s): 8080 (http) 
+[INFO ] [2023-11-22T14:44:31,329] [main] [Http11NioProtocol] The ["http-nio-8080"] connector has been configured to support HTTP upgrade to [h2c] 
+[INFO ] [2023-11-22T14:44:31,329] [main] [Http11NioProtocol] Initializing ProtocolHandler ["http-nio-8080"] 
+[INFO ] [2023-11-22T14:44:31,330] [main] [StandardService] Starting service [Tomcat] 
+[INFO ] [2023-11-22T14:44:31,330] [main] [StandardEngine] Starting Servlet engine: [Apache Tomcat/9.0.62] 
+[INFO ] [2023-11-22T14:44:31,388] [main] [[/]] Initializing Spring embedded WebApplicationContext 
+[INFO ] [2023-11-22T14:44:31,388] [main] [ServletWebServerApplicationContext] Root WebApplicationContext: initialization completed in 651 ms 
+[INFO ] [2023-11-22T14:44:31,480] [main] [HikariDataSource] HikariPool-1 - Starting... 
+[INFO ] [2023-11-22T14:44:31,538] [main] [HikariDataSource] HikariPool-1 - Start completed. 
+[INFO ] [2023-11-22T14:44:31,550] [main] [VersionPrinter] Flyway Community Edition 8.0.5 by Redgate 
+[INFO ] [2023-11-22T14:44:31,550] [main] [BaseDatabaseType] Database: jdbc:postgresql://localhost:5432/postgres (PostgreSQL 13.2) 
+[INFO ] [2023-11-22T14:44:31,580] [main] [DbValidate] Successfully validated 2 migrations (execution time 00:00.015s) 
+[INFO ] [2023-11-22T14:44:31,591] [main] [DbMigrate] Current version of schema "interview_service": 1.1 
+[INFO ] [2023-11-22T14:44:31,592] [main] [DbMigrate] Schema "interview_service" is up to date. No migration necessary. 
+[INFO ] [2023-11-22T14:44:31,865] [main] [Http11NioProtocol] Starting ProtocolHandler ["http-nio-8080"] 
+[INFO ] [2023-11-22T14:44:31,876] [main] [TomcatWebServer] Tomcat started on port(s): 8080 (http) with context path '' 
+[INFO ] [2023-11-22T14:44:31,882] [main] [Application] Started Application in 1.395 seconds (JVM running for 2.04) 
+[INFO ] [2023-11-22T14:44:35,080] [http-nio-8080-exec-1] [[/]] Initializing Spring DispatcherServlet 'dispatcherServlet' 
+[INFO ] [2023-11-22T14:44:35,080] [http-nio-8080-exec-1] [DispatcherServlet] Initializing Servlet 'dispatcherServlet' 
+[INFO ] [2023-11-22T14:44:35,081] [http-nio-8080-exec-1] [DispatcherServlet] Completed initialization in 1 ms 
+[INFO ] [2023-11-22T14:44:55,643] [SpringApplicationShutdownHook] [HikariDataSource] HikariPool-1 - Shutdown initiated... 
+[INFO ] [2023-11-22T14:44:55,649] [SpringApplicationShutdownHook] [HikariDataSource] HikariPool-1 - Shutdown completed. 

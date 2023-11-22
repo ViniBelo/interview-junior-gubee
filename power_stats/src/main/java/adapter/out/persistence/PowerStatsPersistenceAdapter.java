@@ -6,7 +6,6 @@ import application.port.out.UpdatePowerStatsPort;
 import domain.model.PowerStats;
 import domain.model.WebPowerStats;
 import lombok.RequiredArgsConstructor;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
 
@@ -15,19 +14,16 @@ public class PowerStatsPersistenceAdapter implements CreatePowerStatsPort, Updat
     private final PowerStatsRepository powerStatsRepository;
 
     @Override
-    @Transactional
     public UUID createPowerStats(PowerStats powerStats) {
         return powerStatsRepository.createPowerStats(powerStats);
     }
 
     @Override
-    @Transactional
     public void deletePowerStatsById(UUID id) {
         powerStatsRepository.deletePowerStatsById(id);
     }
 
     @Override
-    @Transactional
     public void updatePowerStatsById(UUID id, WebPowerStats webPowerStats) {
         powerStatsRepository.updatePowerStatsById(id, webPowerStats);
     }
