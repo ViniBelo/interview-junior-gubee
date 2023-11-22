@@ -6,7 +6,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Map;
 import java.util.UUID;
@@ -18,7 +17,6 @@ public class PowerStatsRepositoryJdbcImpl implements PowerStatsRepository{
     private static final String CREATE_POWER_STATS_QUERY = "INSERT INTO power_stats" +
             " (strength, agility, dexterity, intelligence)" +
             " VALUES (:strength, :agility, :dexterity, :intelligence) RETURNING id";
-    @Transactional
     public UUID createPowerStats(PowerStats powerStats) {
         return namedParameterJdbcTemplate.queryForObject(
                 CREATE_POWER_STATS_QUERY,
@@ -30,7 +28,6 @@ public class PowerStatsRepositoryJdbcImpl implements PowerStatsRepository{
             "DELETE " +
                     "FROM power_stats " +
                     "WHERE id = :id";
-    @Transactional
     public void deletePowerStatsById(UUID id) {
         final Map<String, Object> params = Map.of("id", id);
         namedParameterJdbcTemplate.update(
@@ -47,7 +44,6 @@ public class PowerStatsRepositoryJdbcImpl implements PowerStatsRepository{
                     "dexterity = :dexterity, " +
                     "intelligence = :intelligence " +
                     "WHERE id = :id";
-    @Transactional
     public void updatePowerStatsById(UUID id, WebPowerStats webPowerStats) {
         final Map<String, Object> params = Map.of(
                 "id", id,
