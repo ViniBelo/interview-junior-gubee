@@ -1,8 +1,8 @@
 package br.com.gubee.interview.core.configuration;
 
 import adapter.in.PowerStatsAdapter;
-import adapter.out.persistence.PowerStatsPersistenceAdapter;
-import adapter.out.persistence.PowerStatsRepositoryJdbcImpl;
+import persistence.PowerStatsPersistenceAdapter;
+import persistence.PowerStatsRepositoryJdbcImpl;
 import application.port.in.CreatePowerStatsUseCase;
 import application.port.in.DeletePowerStatsUseCase;
 import application.port.in.UpdatePowerStatsUseCase;

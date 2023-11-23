@@ -1,9 +1,9 @@
 package application.port.out;
 
-import domain.model.WebPowerStats;
+import dto.PowerStatsDto;
 
 import java.util.UUID;
 
 public interface UpdatePowerStatsPort {
-    void updatePowerStatsById(UUID id, WebPowerStats webPowerStats);
+    void updatePowerStatsById(UUID id, PowerStatsDto powerStatsDto);
 }

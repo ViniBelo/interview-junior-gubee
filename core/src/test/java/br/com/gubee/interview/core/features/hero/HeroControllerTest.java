@@ -1,6 +1,8 @@
 package br.com.gubee.interview.core.features.hero;
 
-import br.com.gubee.interview.core.features.connectors.HeroPowerStatsConnector;
+import br.com.gubee.interview.core.hero.features.connectors.HeroPowerStatsConnector;
+import br.com.gubee.interview.core.hero.hero.HeroController;
+import br.com.gubee.interview.core.hero.hero.HeroService;
 import br.com.gubee.interview.model.enums.Race;
 import br.com.gubee.interview.model.request.CreateHeroRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;

@@ -10,22 +10,30 @@
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar" />
         </processorPath>
-        <module name="interview-core" />
         <module name="interview-model" />
+        <module name="postgresql_persistence" />
+        <module name="interview-core" />
         <module name="interview-power_stats" />
+        <module name="web" />
+        <module name="interview-hero" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="hero" target="17" />
       <module name="power_stats" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="hero" options="-parameters" />
       <module name="interview" options="-parameters" />
       <module name="interview-core" options="-parameters" />
+      <module name="interview-hero" options="-parameters" />
       <module name="interview-model" options="-parameters" />
       <module name="interview-power_stats" options="-parameters" />
+      <module name="postgresql_persistence" options="-parameters" />
       <module name="power_stats" options="-parameters" />
+      <module name="web" options="-parameters" />
     </option>
   </component>
 </project>

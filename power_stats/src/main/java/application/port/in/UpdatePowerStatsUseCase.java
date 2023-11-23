@@ -1,9 +1,9 @@
 package application.port.in;
 
-import domain.model.WebPowerStats;
+import dto.PowerStatsDto;
 
 import java.util.UUID;
 
 public interface UpdatePowerStatsUseCase {
-    void updateById(UUID id, WebPowerStats updateHeroRequest);
+    void updateById(UUID id, PowerStatsDto powerStatsDto);
 }

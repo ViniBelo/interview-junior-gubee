@@ -1,6 +1,6 @@
 package br.com.gubee.interview.model.response;
 
-import br.com.gubee.interview.model.enums.Race;
+//import br.com.gubee.interview.model.enums.Race;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,8 +24,8 @@ public class CreateHeroResponse {
     @Length(min = 1, max = 255, message = "message.name.length")
     private String name;
 
-    @NotNull(message = "message.race.mandatory")
-    private Race race;
+//    @NotNull(message = "message.race.mandatory")
+//    private Race race;
 
     @Min(value = 0, message = "message.powerstats.strength.min")
     @Max(value = 10, message = "message.powerstats.strength.max")

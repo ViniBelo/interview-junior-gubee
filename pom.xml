@@ -43,6 +43,9 @@
         <module>core</module>
         <module>model</module>
         <module>power_stats</module>
+        <module>hero</module>
+        <module>web</module>
+        <module>postgresql_persistence</module>
     </modules>
 
     <dependencyManagement>
