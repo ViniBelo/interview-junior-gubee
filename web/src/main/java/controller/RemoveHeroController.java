@@ -1,5 +1,6 @@
 package controller;
 
+import adapter.HeroAdapter;
 import adapter.PowerStatsAdapter;
 import application.port.in.FetchHeroUseCase;
 import application.port.in.RemoveHeroUseCase;
@@ -19,15 +20,11 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @RequestMapping(value = "/api/v1/heroes", produces = MediaType.APPLICATION_JSON_VALUE)
 public class RemoveHeroController {
-    private final FetchHeroUseCase fetchHeroUseCase;
-    private final RemoveHeroUseCase removeHeroUseCase;
-    private final PowerStatsAdapter powerStatsAdapter;
+    private final HeroAdapter heroAdapter;
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<String> deleteHero(@Validated @PathVariable UUID id) {
         try {
-            var powerStatsId = fetchHeroUseCase.findById(id).powerStatsId();
-            removeHeroUseCase.deleteHero(id);
-            powerStatsAdapter.deletePowerStats(powerStatsId);
+            heroAdapter.deleteHero(id);
             return ResponseEntity.ok().build();
         } catch (EmptyResultDataAccessException e) {
             return ResponseEntity.notFound().build();

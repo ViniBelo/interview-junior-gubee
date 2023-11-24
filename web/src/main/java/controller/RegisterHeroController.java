@@ -1,5 +1,6 @@
 package controller;
 
+import adapter.HeroAdapter;
 import adapter.PowerStatsAdapter;
 import application.port.in.CreatePowerStatsUseCase;
 import application.port.in.RegisterHeroUseCase;
@@ -22,22 +23,11 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @RequestMapping(value = "/api/v1/heroes", produces = MediaType.APPLICATION_JSON_VALUE)
 public class RegisterHeroController {
-    private final RegisterHeroUseCase registerHeroUseCase;
-    private final PowerStatsAdapter powerStatsAdapter;
+    private final HeroAdapter heroAdapter;
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> create(@Validated @RequestBody CreateHeroRequest createHeroRequest) {
-        final UUID powerStatsId = powerStatsAdapter.create(createHeroRequest);
-        HeroDTO heroDTO = createHeroDTO(createHeroRequest, powerStatsId);
-        final UUID heroId = registerHeroUseCase.create(heroDTO);
+        UUID heroId = heroAdapter.create(createHeroRequest);
         return ResponseEntity.created(URI.create(String.format("/api/v1/heroes/%s", heroId))).build();
-    }
-
-    private HeroDTO createHeroDTO (CreateHeroRequest createHeroRequest, UUID powerStatsId) {
-        return new HeroDTO(
-                createHeroRequest.getName(),
-                createHeroRequest.getRace(),
-                powerStatsId
-        );
     }
 }

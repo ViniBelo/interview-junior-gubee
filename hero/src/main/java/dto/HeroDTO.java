@@ -8,7 +8,7 @@ public record HeroDTO(
         @NotNull
         String name,
         @NotNull
-        Race race,
+        String race,
         @NotNull
         UUID powerStatsId
 ) {

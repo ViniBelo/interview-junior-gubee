@@ -1,4 +1,4 @@
-package br.com.gubee.interview.core.configuration;
+package configuration;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;

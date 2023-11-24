@@ -1,6 +1,6 @@
 [INFO ] [2023-11-22T10:15:50,803] [background-preinit] [Version] HV000001: Hibernate Validator 6.2.3.Final 
-[INFO ] [2023-11-22T10:15:50,827] [main] [Application] Starting Application using Java 17.0.8 on Vini-Desktop with PID 12580 (C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior\core\target\classes started by vinia in C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior) 
-[INFO ] [2023-11-22T10:15:50,830] [main] [Application] No active profile set, falling back to 1 default profile: "default" 
+[INFO ] [2023-11-22T10:15:50,827] [main] [application.Application] Starting application.Application using Java 17.0.8 on Vini-Desktop with PID 12580 (C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior\core\target\classes started by vinia in C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior)
+[INFO ] [2023-11-22T10:15:50,830] [main] [application.Application] No active profile set, falling back to 1 default profile: "default"
 [INFO ] [2023-11-22T10:15:51,213] [main] [RepositoryConfigurationDelegate] Bootstrapping Spring Data JDBC repositories in DEFAULT mode. 
 [INFO ] [2023-11-22T10:15:51,221] [main] [RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 5 ms. Found 0 JDBC repository interfaces. 
 [INFO ] [2023-11-22T10:15:51,531] [main] [TomcatWebServer] Tomcat initialized with port(s): 8080 (http) 
@@ -31,8 +31,8 @@ Action:
 Consider defining a bean of type 'application.port.in.CreatePowerStatsUseCase' in your configuration.
  
 [INFO ] [2023-11-22T10:18:44,871] [background-preinit] [Version] HV000001: Hibernate Validator 6.2.3.Final 
-[INFO ] [2023-11-22T10:18:44,893] [main] [Application] Starting Application using Java 17.0.8 on Vini-Desktop with PID 26280 (C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior\core\target\classes started by vinia in C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior) 
-[INFO ] [2023-11-22T10:18:44,895] [main] [Application] No active profile set, falling back to 1 default profile: "default" 
+[INFO ] [2023-11-22T10:18:44,893] [main] [application.Application] Starting application.Application using Java 17.0.8 on Vini-Desktop with PID 26280 (C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior\core\target\classes started by vinia in C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior)
+[INFO ] [2023-11-22T10:18:44,895] [main] [application.Application] No active profile set, falling back to 1 default profile: "default"
 [INFO ] [2023-11-22T10:18:45,207] [main] [RepositoryConfigurationDelegate] Bootstrapping Spring Data JDBC repositories in DEFAULT mode. 
 [INFO ] [2023-11-22T10:18:45,215] [main] [RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 4 ms. Found 0 JDBC repository interfaces. 
 [INFO ] [2023-11-22T10:18:45,466] [main] [TomcatWebServer] Tomcat initialized with port(s): 8080 (http) 
@@ -63,8 +63,8 @@ Action:
 Consider defining a bean of type 'application.port.in.CreatePowerStatsUseCase' in your configuration.
  
 [INFO ] [2023-11-22T10:22:44,364] [background-preinit] [Version] HV000001: Hibernate Validator 6.2.3.Final 
-[INFO ] [2023-11-22T10:22:44,383] [main] [Application] Starting Application using Java 17.0.8 on Vini-Desktop with PID 2248 (C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior\core\target\classes started by vinia in C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior) 
-[INFO ] [2023-11-22T10:22:44,385] [main] [Application] No active profile set, falling back to 1 default profile: "default" 
+[INFO ] [2023-11-22T10:22:44,383] [main] [application.Application] Starting application.Application using Java 17.0.8 on Vini-Desktop with PID 2248 (C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior\core\target\classes started by vinia in C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior)
+[INFO ] [2023-11-22T10:22:44,385] [main] [application.Application] No active profile set, falling back to 1 default profile: "default"
 [INFO ] [2023-11-22T10:22:44,707] [main] [RepositoryConfigurationDelegate] Bootstrapping Spring Data JDBC repositories in DEFAULT mode. 
 [INFO ] [2023-11-22T10:22:44,714] [main] [RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 4 ms. Found 0 JDBC repository interfaces. 
 [INFO ] [2023-11-22T10:22:44,969] [main] [TomcatWebServer] Tomcat initialized with port(s): 8080 (http) 
@@ -141,7 +141,7 @@ org.postgresql.util.PSQLException: Connection to localhost:5432 refused. Check t
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303) ~[spring-boot-2.6.7.jar:2.6.7]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1312) ~[spring-boot-2.6.7.jar:2.6.7]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301) ~[spring-boot-2.6.7.jar:2.6.7]
-	at br.com.gubee.interview.core.Application.main(Application.java:12) ~[classes/:?]
+	at application.Application.main(application.Application.java:12) ~[classes/:?]
 Caused by: java.net.ConnectException: Connection refused: no further information
 	at sun.nio.ch.Net.pollConnect(Native Method) ~[?:?]
 	at sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[?:?]
@@ -164,7 +164,7 @@ Message    : Connection to localhost:5432 refused. Check that the hostname and p
 [INFO ] [2023-11-22T10:22:46,222] [main] [ConditionEvaluationReportLoggingListener] 
 
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled. 
-[ERROR] [2023-11-22T10:22:46,231] [main] [SpringApplication] Application run failed 
+[ERROR] [2023-11-22T10:22:46,231] [main] [SpringApplication] application.Application run failed
 org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'heroPowerStatsConnector' defined in file [C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior\core\target\classes\br\com\gubee\interview\core\features\connectors\HeroPowerStatsConnector.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'createPowerStatsUseCase' defined in class path resource [br/com/gubee/interview/core/configuration/ContextConfiguration.class]: Unsatisfied dependency expressed through method 'createPowerStatsUseCase' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 SQL State  : 08001
@@ -190,7 +190,7 @@ Message    : Connection to localhost:5432 refused. Check that the hostname and p
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303) ~[spring-boot-2.6.7.jar:2.6.7]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1312) ~[spring-boot-2.6.7.jar:2.6.7]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301) ~[spring-boot-2.6.7.jar:2.6.7]
-	at br.com.gubee.interview.core.Application.main(Application.java:12) ~[classes/:?]
+	at application.Application.main(application.Application.java:12) ~[classes/:?]
 Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'createPowerStatsUseCase' defined in class path resource [br/com/gubee/interview/core/configuration/ContextConfiguration.class]: Unsatisfied dependency expressed through method 'createPowerStatsUseCase' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 SQL State  : 08001
@@ -395,8 +395,8 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-5.3.19.jar:5.3.19]
 	... 19 more
 [INFO ] [2023-11-22T10:23:20,998] [background-preinit] [Version] HV000001: Hibernate Validator 6.2.3.Final 
-[INFO ] [2023-11-22T10:23:21,020] [main] [Application] Starting Application using Java 17.0.8 on Vini-Desktop with PID 24568 (C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior\core\target\classes started by vinia in C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior) 
-[INFO ] [2023-11-22T10:23:21,022] [main] [Application] No active profile set, falling back to 1 default profile: "default" 
+[INFO ] [2023-11-22T10:23:21,020] [main] [application.Application] Starting application.Application using Java 17.0.8 on Vini-Desktop with PID 24568 (C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior\core\target\classes started by vinia in C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior)
+[INFO ] [2023-11-22T10:23:21,022] [main] [application.Application] No active profile set, falling back to 1 default profile: "default"
 [INFO ] [2023-11-22T10:23:21,349] [main] [RepositoryConfigurationDelegate] Bootstrapping Spring Data JDBC repositories in DEFAULT mode. 
 [INFO ] [2023-11-22T10:23:21,357] [main] [RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 5 ms. Found 0 JDBC repository interfaces. 
 [INFO ] [2023-11-22T10:23:21,627] [main] [TomcatWebServer] Tomcat initialized with port(s): 8080 (http) 
@@ -436,8 +436,8 @@ Action:
 Consider defining a bean of type 'application.port.in.UpdatePowerStatsUseCase' in your configuration.
  
 [INFO ] [2023-11-22T10:25:27,243] [background-preinit] [Version] HV000001: Hibernate Validator 6.2.3.Final 
-[INFO ] [2023-11-22T10:25:27,265] [main] [Application] Starting Application using Java 17.0.8 on Vini-Desktop with PID 28228 (C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior\core\target\classes started by vinia in C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior) 
-[INFO ] [2023-11-22T10:25:27,268] [main] [Application] No active profile set, falling back to 1 default profile: "default" 
+[INFO ] [2023-11-22T10:25:27,265] [main] [application.Application] Starting application.Application using Java 17.0.8 on Vini-Desktop with PID 28228 (C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior\core\target\classes started by vinia in C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior)
+[INFO ] [2023-11-22T10:25:27,268] [main] [application.Application] No active profile set, falling back to 1 default profile: "default"
 [INFO ] [2023-11-22T10:25:27,589] [main] [RepositoryConfigurationDelegate] Bootstrapping Spring Data JDBC repositories in DEFAULT mode. 
 [INFO ] [2023-11-22T10:25:27,597] [main] [RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 4 ms. Found 0 JDBC repository interfaces. 
 [INFO ] [2023-11-22T10:25:27,856] [main] [TomcatWebServer] Tomcat initialized with port(s): 8080 (http) 
@@ -456,15 +456,15 @@ Consider defining a bean of type 'application.port.in.UpdatePowerStatsUseCase' i
 [INFO ] [2023-11-22T10:25:28,159] [main] [DbMigrate] Schema "interview_service" is up to date. No migration necessary. 
 [INFO ] [2023-11-22T10:25:28,458] [main] [Http11NioProtocol] Starting ProtocolHandler ["http-nio-8080"] 
 [INFO ] [2023-11-22T10:25:28,471] [main] [TomcatWebServer] Tomcat started on port(s): 8080 (http) with context path '' 
-[INFO ] [2023-11-22T10:25:28,477] [main] [Application] Started Application in 1.417 seconds (JVM running for 2.03) 
+[INFO ] [2023-11-22T10:25:28,477] [main] [application.Application] Started application.Application in 1.417 seconds (JVM running for 2.03)
 [INFO ] [2023-11-22T10:25:52,847] [http-nio-8080-exec-1] [[/]] Initializing Spring DispatcherServlet 'dispatcherServlet' 
 [INFO ] [2023-11-22T10:25:52,847] [http-nio-8080-exec-1] [DispatcherServlet] Initializing Servlet 'dispatcherServlet' 
 [INFO ] [2023-11-22T10:25:52,847] [http-nio-8080-exec-1] [DispatcherServlet] Completed initialization in 0 ms 
 [INFO ] [2023-11-22T11:20:08,586] [SpringApplicationShutdownHook] [HikariDataSource] HikariPool-1 - Shutdown initiated... 
 [INFO ] [2023-11-22T11:20:08,593] [SpringApplicationShutdownHook] [HikariDataSource] HikariPool-1 - Shutdown completed. 
 [INFO ] [2023-11-22T14:21:48,083] [background-preinit] [Version] HV000001: Hibernate Validator 6.2.3.Final 
-[INFO ] [2023-11-22T14:21:48,102] [main] [Application] Starting Application using Java 17.0.8 on Vini-Desktop with PID 30672 (C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior\core\target\classes started by vinia in C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior) 
-[INFO ] [2023-11-22T14:21:48,104] [main] [Application] No active profile set, falling back to 1 default profile: "default" 
+[INFO ] [2023-11-22T14:21:48,102] [main] [application.Application] Starting application.Application using Java 17.0.8 on Vini-Desktop with PID 30672 (C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior\core\target\classes started by vinia in C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior)
+[INFO ] [2023-11-22T14:21:48,104] [main] [application.Application] No active profile set, falling back to 1 default profile: "default"
 [INFO ] [2023-11-22T14:21:48,422] [main] [RepositoryConfigurationDelegate] Bootstrapping Spring Data JDBC repositories in DEFAULT mode. 
 [INFO ] [2023-11-22T14:21:48,430] [main] [RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 4 ms. Found 0 JDBC repository interfaces. 
 [INFO ] [2023-11-22T14:21:48,700] [main] [TomcatWebServer] Tomcat initialized with port(s): 8080 (http) 
@@ -483,7 +483,7 @@ Consider defining a bean of type 'application.port.in.UpdatePowerStatsUseCase' i
 [INFO ] [2023-11-22T14:21:49,017] [main] [DbMigrate] Schema "interview_service" is up to date. No migration necessary. 
 [INFO ] [2023-11-22T14:21:49,288] [main] [Http11NioProtocol] Starting ProtocolHandler ["http-nio-8080"] 
 [INFO ] [2023-11-22T14:21:49,300] [main] [TomcatWebServer] Tomcat started on port(s): 8080 (http) with context path '' 
-[INFO ] [2023-11-22T14:21:49,305] [main] [Application] Started Application in 1.395 seconds (JVM running for 2.068) 
+[INFO ] [2023-11-22T14:21:49,305] [main] [application.Application] Started application.Application in 1.395 seconds (JVM running for 2.068)
 [INFO ] [2023-11-22T14:21:54,433] [http-nio-8080-exec-1] [[/]] Initializing Spring DispatcherServlet 'dispatcherServlet' 
 [INFO ] [2023-11-22T14:21:54,433] [http-nio-8080-exec-1] [DispatcherServlet] Initializing Servlet 'dispatcherServlet' 
 [INFO ] [2023-11-22T14:21:54,434] [http-nio-8080-exec-1] [DispatcherServlet] Completed initialization in 1 ms 
@@ -608,8 +608,8 @@ Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violate
 [INFO ] [2023-11-22T14:25:22,166] [SpringApplicationShutdownHook] [HikariDataSource] HikariPool-1 - Shutdown initiated... 
 [INFO ] [2023-11-22T14:25:22,170] [SpringApplicationShutdownHook] [HikariDataSource] HikariPool-1 - Shutdown completed. 
 [INFO ] [2023-11-22T14:40:49,138] [background-preinit] [Version] HV000001: Hibernate Validator 6.2.3.Final 
-[INFO ] [2023-11-22T14:40:49,157] [main] [Application] Starting Application using Java 17.0.8 on Vini-Desktop with PID 19360 (C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior\core\target\classes started by vinia in C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior) 
-[INFO ] [2023-11-22T14:40:49,159] [main] [Application] No active profile set, falling back to 1 default profile: "default" 
+[INFO ] [2023-11-22T14:40:49,157] [main] [application.Application] Starting application.Application using Java 17.0.8 on Vini-Desktop with PID 19360 (C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior\core\target\classes started by vinia in C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior)
+[INFO ] [2023-11-22T14:40:49,159] [main] [application.Application] No active profile set, falling back to 1 default profile: "default"
 [INFO ] [2023-11-22T14:40:49,497] [main] [RepositoryConfigurationDelegate] Bootstrapping Spring Data JDBC repositories in DEFAULT mode. 
 [INFO ] [2023-11-22T14:40:49,504] [main] [RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 4 ms. Found 0 JDBC repository interfaces. 
 [INFO ] [2023-11-22T14:40:49,773] [main] [TomcatWebServer] Tomcat initialized with port(s): 8080 (http) 
@@ -628,15 +628,15 @@ Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violate
 [INFO ] [2023-11-22T14:40:50,047] [main] [DbMigrate] Schema "interview_service" is up to date. No migration necessary. 
 [INFO ] [2023-11-22T14:40:50,337] [main] [Http11NioProtocol] Starting ProtocolHandler ["http-nio-8080"] 
 [INFO ] [2023-11-22T14:40:50,349] [main] [TomcatWebServer] Tomcat started on port(s): 8080 (http) with context path '' 
-[INFO ] [2023-11-22T14:40:50,354] [main] [Application] Started Application in 1.394 seconds (JVM running for 2.005) 
+[INFO ] [2023-11-22T14:40:50,354] [main] [application.Application] Started application.Application in 1.394 seconds (JVM running for 2.005)
 [INFO ] [2023-11-22T14:41:01,440] [http-nio-8080-exec-1] [[/]] Initializing Spring DispatcherServlet 'dispatcherServlet' 
 [INFO ] [2023-11-22T14:41:01,440] [http-nio-8080-exec-1] [DispatcherServlet] Initializing Servlet 'dispatcherServlet' 
 [INFO ] [2023-11-22T14:41:01,441] [http-nio-8080-exec-1] [DispatcherServlet] Completed initialization in 1 ms 
 [INFO ] [2023-11-22T14:41:06,235] [SpringApplicationShutdownHook] [HikariDataSource] HikariPool-1 - Shutdown initiated... 
 [INFO ] [2023-11-22T14:41:06,241] [SpringApplicationShutdownHook] [HikariDataSource] HikariPool-1 - Shutdown completed. 
 [INFO ] [2023-11-22T14:44:30,686] [background-preinit] [Version] HV000001: Hibernate Validator 6.2.3.Final 
-[INFO ] [2023-11-22T14:44:30,709] [main] [Application] Starting Application using Java 17.0.8 on Vini-Desktop with PID 17904 (C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior\core\target\classes started by vinia in C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior) 
-[INFO ] [2023-11-22T14:44:30,711] [main] [Application] No active profile set, falling back to 1 default profile: "default" 
+[INFO ] [2023-11-22T14:44:30,709] [main] [application.Application] Starting application.Application using Java 17.0.8 on Vini-Desktop with PID 17904 (C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior\core\target\classes started by vinia in C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior)
+[INFO ] [2023-11-22T14:44:30,711] [main] [application.Application] No active profile set, falling back to 1 default profile: "default"
 [INFO ] [2023-11-22T14:44:31,037] [main] [RepositoryConfigurationDelegate] Bootstrapping Spring Data JDBC repositories in DEFAULT mode. 
 [INFO ] [2023-11-22T14:44:31,046] [main] [RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 6 ms. Found 0 JDBC repository interfaces. 
 [INFO ] [2023-11-22T14:44:31,316] [main] [TomcatWebServer] Tomcat initialized with port(s): 8080 (http) 
@@ -655,15 +655,15 @@ Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violate
 [INFO ] [2023-11-22T14:44:31,592] [main] [DbMigrate] Schema "interview_service" is up to date. No migration necessary. 
 [INFO ] [2023-11-22T14:44:31,865] [main] [Http11NioProtocol] Starting ProtocolHandler ["http-nio-8080"] 
 [INFO ] [2023-11-22T14:44:31,876] [main] [TomcatWebServer] Tomcat started on port(s): 8080 (http) with context path '' 
-[INFO ] [2023-11-22T14:44:31,882] [main] [Application] Started Application in 1.395 seconds (JVM running for 2.04) 
+[INFO ] [2023-11-22T14:44:31,882] [main] [application.Application] Started application.Application in 1.395 seconds (JVM running for 2.04)
 [INFO ] [2023-11-22T14:44:35,080] [http-nio-8080-exec-1] [[/]] Initializing Spring DispatcherServlet 'dispatcherServlet' 
 [INFO ] [2023-11-22T14:44:35,080] [http-nio-8080-exec-1] [DispatcherServlet] Initializing Servlet 'dispatcherServlet' 
 [INFO ] [2023-11-22T14:44:35,081] [http-nio-8080-exec-1] [DispatcherServlet] Completed initialization in 1 ms 
 [INFO ] [2023-11-22T14:44:55,643] [SpringApplicationShutdownHook] [HikariDataSource] HikariPool-1 - Shutdown initiated... 
 [INFO ] [2023-11-22T14:44:55,649] [SpringApplicationShutdownHook] [HikariDataSource] HikariPool-1 - Shutdown completed. 
 [INFO ] [2023-11-22T14:48:10,878] [background-preinit] [Version] HV000001: Hibernate Validator 6.2.3.Final 
-[INFO ] [2023-11-22T14:48:10,899] [main] [Application] Starting Application using Java 17.0.8 on Vini-Desktop with PID 31964 (C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior\core\target\classes started by vinia in C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior) 
-[INFO ] [2023-11-22T14:48:10,901] [main] [Application] No active profile set, falling back to 1 default profile: "default" 
+[INFO ] [2023-11-22T14:48:10,899] [main] [application.Application] Starting application.Application using Java 17.0.8 on Vini-Desktop with PID 31964 (C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior\core\target\classes started by vinia in C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior)
+[INFO ] [2023-11-22T14:48:10,901] [main] [application.Application] No active profile set, falling back to 1 default profile: "default"
 [INFO ] [2023-11-22T14:48:11,222] [main] [RepositoryConfigurationDelegate] Bootstrapping Spring Data JDBC repositories in DEFAULT mode. 
 [INFO ] [2023-11-22T14:48:11,232] [main] [RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 7 ms. Found 0 JDBC repository interfaces. 
 [INFO ] [2023-11-22T14:48:11,495] [main] [TomcatWebServer] Tomcat initialized with port(s): 8080 (http) 
@@ -682,15 +682,15 @@ Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violate
 [INFO ] [2023-11-22T14:48:11,779] [main] [DbMigrate] Schema "interview_service" is up to date. No migration necessary. 
 [INFO ] [2023-11-22T14:48:12,091] [main] [Http11NioProtocol] Starting ProtocolHandler ["http-nio-8080"] 
 [INFO ] [2023-11-22T14:48:12,104] [main] [TomcatWebServer] Tomcat started on port(s): 8080 (http) with context path '' 
-[INFO ] [2023-11-22T14:48:12,109] [main] [Application] Started Application in 1.409 seconds (JVM running for 2.026) 
+[INFO ] [2023-11-22T14:48:12,109] [main] [application.Application] Started application.Application in 1.409 seconds (JVM running for 2.026)
 [INFO ] [2023-11-22T14:48:15,480] [http-nio-8080-exec-1] [[/]] Initializing Spring DispatcherServlet 'dispatcherServlet' 
 [INFO ] [2023-11-22T14:48:15,480] [http-nio-8080-exec-1] [DispatcherServlet] Initializing Servlet 'dispatcherServlet' 
 [INFO ] [2023-11-22T14:48:15,481] [http-nio-8080-exec-1] [DispatcherServlet] Completed initialization in 0 ms 
 [INFO ] [2023-11-22T14:51:05,239] [SpringApplicationShutdownHook] [HikariDataSource] HikariPool-1 - Shutdown initiated... 
 [INFO ] [2023-11-22T14:51:05,245] [SpringApplicationShutdownHook] [HikariDataSource] HikariPool-1 - Shutdown completed. 
 [INFO ] [2023-11-22T15:43:55,198] [background-preinit] [Version] HV000001: Hibernate Validator 6.2.3.Final 
-[INFO ] [2023-11-22T15:43:55,219] [main] [Application] Starting Application using Java 17.0.8 on Vini-Desktop with PID 31016 (C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior\core\target\classes started by vinia in C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior) 
-[INFO ] [2023-11-22T15:43:55,222] [main] [Application] No active profile set, falling back to 1 default profile: "default" 
+[INFO ] [2023-11-22T15:43:55,219] [main] [application.Application] Starting application.Application using Java 17.0.8 on Vini-Desktop with PID 31016 (C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior\core\target\classes started by vinia in C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior)
+[INFO ] [2023-11-22T15:43:55,222] [main] [application.Application] No active profile set, falling back to 1 default profile: "default"
 [INFO ] [2023-11-22T15:43:55,555] [main] [RepositoryConfigurationDelegate] Bootstrapping Spring Data JDBC repositories in DEFAULT mode. 
 [INFO ] [2023-11-22T15:43:55,562] [main] [RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 5 ms. Found 0 JDBC repository interfaces. 
 [INFO ] [2023-11-22T15:43:55,839] [main] [TomcatWebServer] Tomcat initialized with port(s): 8080 (http) 
@@ -781,7 +781,7 @@ org.postgresql.util.PSQLException: Connection to localhost:5432 refused. Check t
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303) ~[spring-boot-2.6.7.jar:2.6.7]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1312) ~[spring-boot-2.6.7.jar:2.6.7]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301) ~[spring-boot-2.6.7.jar:2.6.7]
-	at br.com.gubee.interview.core.Application.main(Application.java:12) ~[classes/:?]
+	at application.Application.main(application.Application.java:12) ~[classes/:?]
 Caused by: java.net.ConnectException: Connection refused: no further information
 	at sun.nio.ch.Net.pollConnect(Native Method) ~[?:?]
 	at sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[?:?]
@@ -804,7 +804,7 @@ Message    : Connection to localhost:5432 refused. Check that the hostname and p
 [INFO ] [2023-11-22T15:43:57,121] [main] [ConditionEvaluationReportLoggingListener] 
 
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled. 
-[ERROR] [2023-11-22T15:43:57,132] [main] [SpringApplication] Application run failed 
+[ERROR] [2023-11-22T15:43:57,132] [main] [SpringApplication] application.Application run failed
 org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'heroPowerStatsConnector' defined in file [C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior\core\target\classes\br\com\gubee\interview\core\features\connectors\HeroPowerStatsConnector.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'powerStatsAdapter' defined in class path resource [br/com/gubee/interview/core/configuration/ContextConfiguration.class]: Unsatisfied dependency expressed through method 'powerStatsAdapter' parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'createPowerStatsUseCase' defined in class path resource [br/com/gubee/interview/core/configuration/ContextConfiguration.class]: Unsatisfied dependency expressed through method 'createPowerStatsUseCase' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 SQL State  : 08001
@@ -830,7 +830,7 @@ Message    : Connection to localhost:5432 refused. Check that the hostname and p
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303) ~[spring-boot-2.6.7.jar:2.6.7]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1312) ~[spring-boot-2.6.7.jar:2.6.7]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301) ~[spring-boot-2.6.7.jar:2.6.7]
-	at br.com.gubee.interview.core.Application.main(Application.java:12) ~[classes/:?]
+	at application.Application.main(application.Application.java:12) ~[classes/:?]
 Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'powerStatsAdapter' defined in class path resource [br/com/gubee/interview/core/configuration/ContextConfiguration.class]: Unsatisfied dependency expressed through method 'powerStatsAdapter' parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'createPowerStatsUseCase' defined in class path resource [br/com/gubee/interview/core/configuration/ContextConfiguration.class]: Unsatisfied dependency expressed through method 'createPowerStatsUseCase' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 SQL State  : 08001
@@ -1127,8 +1127,8 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-5.3.19.jar:5.3.19]
 	... 19 more
 [INFO ] [2023-11-22T15:44:00,612] [background-preinit] [Version] HV000001: Hibernate Validator 6.2.3.Final 
-[INFO ] [2023-11-22T15:44:00,632] [main] [Application] Starting Application using Java 17.0.8 on Vini-Desktop with PID 27988 (C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior\core\target\classes started by vinia in C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior) 
-[INFO ] [2023-11-22T15:44:00,635] [main] [Application] No active profile set, falling back to 1 default profile: "default" 
+[INFO ] [2023-11-22T15:44:00,632] [main] [application.Application] Starting application.Application using Java 17.0.8 on Vini-Desktop with PID 27988 (C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior\core\target\classes started by vinia in C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior)
+[INFO ] [2023-11-22T15:44:00,635] [main] [application.Application] No active profile set, falling back to 1 default profile: "default"
 [INFO ] [2023-11-22T15:44:00,958] [main] [RepositoryConfigurationDelegate] Bootstrapping Spring Data JDBC repositories in DEFAULT mode. 
 [INFO ] [2023-11-22T15:44:00,966] [main] [RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 5 ms. Found 0 JDBC repository interfaces. 
 [INFO ] [2023-11-22T15:44:01,224] [main] [TomcatWebServer] Tomcat initialized with port(s): 8080 (http) 
@@ -1147,9 +1147,81 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 [INFO ] [2023-11-22T15:44:01,490] [main] [DbMigrate] Schema "interview_service" is up to date. No migration necessary. 
 [INFO ] [2023-11-22T15:44:01,761] [main] [Http11NioProtocol] Starting ProtocolHandler ["http-nio-8080"] 
 [INFO ] [2023-11-22T15:44:01,772] [main] [TomcatWebServer] Tomcat started on port(s): 8080 (http) with context path '' 
-[INFO ] [2023-11-22T15:44:01,777] [main] [Application] Started Application in 1.346 seconds (JVM running for 1.963) 
+[INFO ] [2023-11-22T15:44:01,777] [main] [application.Application] Started application.Application in 1.346 seconds (JVM running for 1.963)
 [INFO ] [2023-11-22T15:44:09,222] [http-nio-8080-exec-1] [[/]] Initializing Spring DispatcherServlet 'dispatcherServlet' 
 [INFO ] [2023-11-22T15:44:09,223] [http-nio-8080-exec-1] [DispatcherServlet] Initializing Servlet 'dispatcherServlet' 
 [INFO ] [2023-11-22T15:44:09,223] [http-nio-8080-exec-1] [DispatcherServlet] Completed initialization in 0 ms 
 [INFO ] [2023-11-22T15:45:27,922] [SpringApplicationShutdownHook] [HikariDataSource] HikariPool-1 - Shutdown initiated... 
 [INFO ] [2023-11-22T15:45:27,930] [SpringApplicationShutdownHook] [HikariDataSource] HikariPool-1 - Shutdown completed. 
+[INFO ] [2023-11-24T11:19:40,961] [background-preinit] [Version] HV000001: Hibernate Validator 6.2.3.Final 
+[INFO ] [2023-11-24T11:19:40,995] [main] [Application] Starting Application using Java 17.0.8 on Vini-Desktop with PID 27180 (C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior\web\target\classes started by vinia in C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior) 
+[INFO ] [2023-11-24T11:19:41,000] [main] [Application] No active profile set, falling back to 1 default profile: "default" 
+[INFO ] [2023-11-24T11:19:41,421] [main] [RepositoryConfigurationDelegate] Bootstrapping Spring Data JDBC repositories in DEFAULT mode. 
+[INFO ] [2023-11-24T11:19:41,436] [main] [RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 10 ms. Found 0 JDBC repository interfaces. 
+[INFO ] [2023-11-24T11:19:41,802] [main] [TomcatWebServer] Tomcat initialized with port(s): 8080 (http) 
+[INFO ] [2023-11-24T11:19:41,813] [main] [Http11NioProtocol] The ["http-nio-8080"] connector has been configured to support HTTP upgrade to [h2c] 
+[INFO ] [2023-11-24T11:19:41,814] [main] [Http11NioProtocol] Initializing ProtocolHandler ["http-nio-8080"] 
+[INFO ] [2023-11-24T11:19:41,814] [main] [StandardService] Starting service [Tomcat] 
+[INFO ] [2023-11-24T11:19:41,814] [main] [StandardEngine] Starting Servlet engine: [Apache Tomcat/9.0.62] 
+[INFO ] [2023-11-24T11:19:41,887] [main] [[/]] Initializing Spring embedded WebApplicationContext 
+[INFO ] [2023-11-24T11:19:41,888] [main] [ServletWebServerApplicationContext] Root WebApplicationContext: initialization completed in 854 ms 
+[WARN ] [2023-11-24T11:19:42,111] [main] [AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class 
+[INFO ] [2023-11-24T11:19:42,156] [main] [StandardService] Stopping service [Tomcat] 
+[INFO ] [2023-11-24T11:19:42,163] [main] [ConditionEvaluationReportLoggingListener] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled. 
+[ERROR] [2023-11-24T11:19:42,175] [main] [LoggingFailureAnalysisReporter] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+ 
+[INFO ] [2023-11-24T11:21:42,354] [background-preinit] [Version] HV000001: Hibernate Validator 6.2.3.Final 
+[INFO ] [2023-11-24T11:21:42,377] [main] [Application] Starting Application using Java 17.0.8 on Vini-Desktop with PID 23792 (C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior\web\target\classes started by vinia in C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior) 
+[INFO ] [2023-11-24T11:21:42,393] [main] [Application] No active profile set, falling back to 1 default profile: "default" 
+[INFO ] [2023-11-24T11:21:42,744] [main] [RepositoryConfigurationDelegate] Bootstrapping Spring Data JDBC repositories in DEFAULT mode. 
+[INFO ] [2023-11-24T11:21:42,757] [main] [RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 10 ms. Found 0 JDBC repository interfaces. 
+[INFO ] [2023-11-24T11:21:43,091] [main] [TomcatWebServer] Tomcat initialized with port(s): 8080 (http) 
+[INFO ] [2023-11-24T11:21:43,103] [main] [Http11NioProtocol] The ["http-nio-8080"] connector has been configured to support HTTP upgrade to [h2c] 
+[INFO ] [2023-11-24T11:21:43,103] [main] [Http11NioProtocol] Initializing ProtocolHandler ["http-nio-8080"] 
+[INFO ] [2023-11-24T11:21:43,103] [main] [StandardService] Starting service [Tomcat] 
+[INFO ] [2023-11-24T11:21:43,104] [main] [StandardEngine] Starting Servlet engine: [Apache Tomcat/9.0.62] 
+[INFO ] [2023-11-24T11:21:43,171] [main] [[/]] Initializing Spring embedded WebApplicationContext 
+[INFO ] [2023-11-24T11:21:43,171] [main] [ServletWebServerApplicationContext] Root WebApplicationContext: initialization completed in 750 ms 
+[WARN ] [2023-11-24T11:21:43,365] [main] [AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class 
+[INFO ] [2023-11-24T11:21:43,406] [main] [StandardService] Stopping service [Tomcat] 
+[INFO ] [2023-11-24T11:21:43,414] [main] [ConditionEvaluationReportLoggingListener] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled. 
+[ERROR] [2023-11-24T11:21:43,423] [main] [LoggingFailureAnalysisReporter] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+ 

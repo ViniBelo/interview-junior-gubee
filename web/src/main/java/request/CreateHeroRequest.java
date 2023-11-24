@@ -1,12 +1,10 @@
 package request;
 
-//import br.com.gubee.interview.model.enums.Race;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
-import utils.enums.Race;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -26,7 +24,7 @@ public class CreateHeroRequest {
     private String name;
 
     @NotNull(message = "message.race.mandatory")
-    private Race race;
+    private String race;
 
     @Min(value = 0, message = "message.powerstats.strength.min")
     @Max(value = 10, message = "message.powerstats.strength.max")

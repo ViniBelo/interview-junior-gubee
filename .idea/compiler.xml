@@ -10,7 +10,6 @@
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar" />
         </processorPath>
-        <module name="interview-model" />
         <module name="postgresql_persistence" />
         <module name="interview-core" />
         <module name="interview-power_stats" />
@@ -20,6 +19,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="hero" target="17" />
+      <module name="interview-model" target="11" />
       <module name="power_stats" target="17" />
     </bytecodeTargetLevel>
   </component>

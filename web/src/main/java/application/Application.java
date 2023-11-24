@@ -1,4 +1,4 @@
-package br.com.gubee.interview.core;
+package application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

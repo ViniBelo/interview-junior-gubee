@@ -1,7 +1,7 @@
 package controller;
 
+import adapter.HeroAdapter;
 import adapter.PowerStatsAdapter;
-import application.port.in.FetchHeroUseCase;
 import dto.HeroDTO;
 import dto.PowerStatsDto;
 import lombok.RequiredArgsConstructor;
@@ -21,12 +21,12 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @RequestMapping(value = "/api/v1/heroes", produces = MediaType.APPLICATION_JSON_VALUE)
 public class FetchHeroController {
-    private final FetchHeroUseCase fetchHeroUseCase;
+    private final HeroAdapter heroAdapter;
     private final PowerStatsAdapter powerStatsAdapter;
     @GetMapping(value = "/{id}")
     public ResponseEntity<CreateHeroRequest> findById(@Validated @PathVariable UUID id) {
         try {
-            HeroDTO hero = fetchHeroUseCase.findById(id);
+            HeroDTO hero = heroAdapter.findById(id);
             PowerStatsDto powerStats = powerStatsAdapter.findPowerStatsById(hero.powerStatsId());
             CreateHeroRequest createHeroResponse = createHeroRequest(hero, powerStats);
             return ResponseEntity.ok(createHeroResponse);
@@ -38,7 +38,7 @@ public class FetchHeroController {
     @GetMapping(value = "/search/{name}")
     public ResponseEntity<CreateHeroRequest> findByName(@Validated @PathVariable String name) {
         try {
-            HeroDTO hero = fetchHeroUseCase.findByName(name);
+            HeroDTO hero = heroAdapter.findByName(name);
             PowerStatsDto powerStats = powerStatsAdapter.findPowerStatsById(hero.powerStatsId());
             CreateHeroRequest createHeroResponse = createHeroRequest(hero, powerStats);
             return ResponseEntity.ok().body(createHeroResponse);

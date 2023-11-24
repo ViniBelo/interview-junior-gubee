@@ -1,9 +1,6 @@
 package hero;
 
-import br.com.gubee.interview.core.hero.domain.model.Hero;
-import br.com.gubee.interview.model.enums.Race;
-import br.com.gubee.interview.model.request.UpdateHeroRequest;
-import br.com.gubee.interview.model.response.CreateHeroResponse;
+
 import dto.HeroDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -27,7 +24,7 @@ public class HeroRepository {
 
     public UUID create(HeroDTO hero) {
         final Map<String, Object> params = Map.of("name", hero.name(),
-                "race", hero.race().name(),
+                "race", hero.race(),
                 "powerStatsId", hero.powerStatsId()
         );
 
@@ -44,8 +41,7 @@ public class HeroRepository {
                     "JOIN power_stats ps " +
                     "ON h.power_stats_id = ps.id " +
                     "WHERE h.id = :id";
-
-    public CreateHeroResponse findById(UUID id) {
+    public HeroDTO findById(UUID id) {
         final Map<String, Object> params = Map.of("id", id);
         return namedParameterJdbcTemplate.queryForObject(
                 GET_HERO_BY_ID_QUERY,
@@ -62,7 +58,7 @@ public class HeroRepository {
                     "WHERE h.name " +
                     "ILIKE :name";
 
-    public CreateHeroResponse findByName(String name) {
+    public HeroDTO findByName(String name) {
         final Map<String, Object> params = Map.of("name", name);
         return namedParameterJdbcTemplate.queryForObject(
                 GET_HERO_BY_NAME_QUERY,
@@ -71,22 +67,11 @@ public class HeroRepository {
         );
     }
 
-    private CreateHeroResponse buildHero(ResultSet resultSet) throws SQLException {
+    private HeroDTO buildHero(ResultSet resultSet) throws SQLException {
         var name = resultSet.getString("name");
-        var race = Race.valueOf(resultSet.getString("race"));
-        var strength = resultSet.getInt("strength");
-        var agility = resultSet.getInt("agility");
-        var dexterity = resultSet.getInt("dexterity");
-        var intelligence = resultSet.getInt("intelligence");
-        return CreateHeroResponse
-                .builder()
-                .name(name)
-                .race(race)
-                .strength(strength)
-                .agility(agility)
-                .dexterity(dexterity)
-                .intelligence(intelligence)
-                .build();
+        var race = resultSet.getString("race");
+        var powerStatsId = UUID.fromString(resultSet.getString("power"));
+        return new HeroDTO(name, race, powerStatsId);
     }
 
     private static final String UPDATE_HERO_BY_ID_QUERY =
@@ -97,11 +82,11 @@ public class HeroRepository {
                     "updated_at = NOW() " +
                     "WHERE id = :id";
 
-    public void updateHero(HeroDTO heroDTO) {
+    public void updateHero(UUID id, HeroDTO heroDTO) {
         final Map<String, Object> params = Map.of(
                 "id", id,
                 "name", heroDTO.name(),
-                "race", heroDTO.race().name()
+                "race", heroDTO.race()
         );
         namedParameterJdbcTemplate.update(
                 UPDATE_HERO_BY_ID_QUERY,

@@ -1,8 +1,0 @@
-br\com\gubee\interview\model\request\CreateHeroRequest.class
-br\com\gubee\interview\model\request\UpdateHeroRequest$UpdateHeroRequestBuilder.class
-br\com\gubee\interview\model\request\CreateHeroRequest$CreateHeroRequestBuilder.class
-br\com\gubee\interview\model\response\CreateHeroResponse.class
-br\com\gubee\interview\model\response\ComparePowerStatsResponse$ComparePowerStatsResponseBuilder.class
-br\com\gubee\interview\model\response\CreateHeroResponse$CreateHeroResponseBuilder.class
-br\com\gubee\interview\model\request\UpdateHeroRequest.class
-br\com\gubee\interview\model\response\ComparePowerStatsResponse.class
