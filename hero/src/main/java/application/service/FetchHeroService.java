@@ -15,7 +15,6 @@ public class FetchHeroService implements FetchHeroUseCase {
         try {
             return findHeroPort.findById(id);
         } catch (Exception e) {
-            e.printStackTrace();
             return null;
         }
     }
@@ -25,7 +24,6 @@ public class FetchHeroService implements FetchHeroUseCase {
         try {
             return findHeroPort.findByName(name);
         } catch (Exception e) {
-            e.printStackTrace();
             return null;
         }
     }

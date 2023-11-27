@@ -1,6 +1,6 @@
 package application;
 
-import Configuration.WebAdapterConfiguration;
+import configuration.WebAdapterConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;

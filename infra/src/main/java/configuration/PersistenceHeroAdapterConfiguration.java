@@ -1,4 +1,4 @@
-package Configuration;
+package configuration;
 
 import application.port.in.*;
 import application.port.out.CreateHeroPort;

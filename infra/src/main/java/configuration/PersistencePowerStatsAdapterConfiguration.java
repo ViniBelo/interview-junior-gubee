@@ -1,4 +1,4 @@
-package Configuration;
+package configuration;
 
 import application.port.in.CreatePowerStatsUseCase;
 import application.port.in.DeletePowerStatsUseCase;

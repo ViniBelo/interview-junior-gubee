@@ -1,4 +1,4 @@
-package Configuration;
+package configuration;
 
 import adapter.HeroAdapter;
 import adapter.PowerStatsAdapter;
