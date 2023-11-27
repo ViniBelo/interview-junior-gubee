@@ -4,6 +4,7 @@
     <file url="file://$PROJECT_DIR$/core/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/core/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hero/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/infra/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/model/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/postgresql_persistence/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/power_stats/src/main/java" charset="UTF-8" />

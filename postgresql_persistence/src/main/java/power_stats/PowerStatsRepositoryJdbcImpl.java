@@ -58,4 +58,9 @@ public class PowerStatsRepositoryJdbcImpl implements PowerStatsRepository {
                 params
         );
     }
+
+    @Override
+    public PowerStatsDto findPowerStatsById(UUID id) {
+        return null;
+    }
 }

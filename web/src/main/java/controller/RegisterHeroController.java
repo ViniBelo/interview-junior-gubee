@@ -27,6 +27,7 @@ public class RegisterHeroController {
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> create(@Validated @RequestBody CreateHeroRequest createHeroRequest) {
+        System.out.println("RHC");
         UUID heroId = heroAdapter.create(createHeroRequest);
         return ResponseEntity.created(URI.create(String.format("/api/v1/heroes/%s", heroId))).build();
     }

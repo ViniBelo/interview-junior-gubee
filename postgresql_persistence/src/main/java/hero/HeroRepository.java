@@ -14,20 +14,16 @@ import java.util.UUID;
 @Repository
 @RequiredArgsConstructor
 public class HeroRepository {
+    private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     private static final String CREATE_HERO_QUERY = "INSERT INTO hero" +
             " (name, race, power_stats_id)" +
             " VALUES (:name, :race, :powerStatsId) RETURNING id";
-
-
-    private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
-
     public UUID create(HeroDTO hero) {
         final Map<String, Object> params = Map.of("name", hero.name(),
-                "race", hero.race(),
+                "race", hero.race().name(),
                 "powerStatsId", hero.powerStatsId()
         );
-
         return namedParameterJdbcTemplate.queryForObject(
                 CREATE_HERO_QUERY,
                 params,
@@ -41,12 +37,12 @@ public class HeroRepository {
                     "JOIN power_stats ps " +
                     "ON h.power_stats_id = ps.id " +
                     "WHERE h.id = :id";
-    public HeroDTO findById(UUID id) {
+    public ResultSet findById(UUID id) {
         final Map<String, Object> params = Map.of("id", id);
         return namedParameterJdbcTemplate.queryForObject(
                 GET_HERO_BY_ID_QUERY,
                 params,
-                (resultSet, rowNumber) -> buildHero(resultSet)
+                (resultSet, rowNumber) -> resultSet
         );
     }
 
@@ -57,21 +53,13 @@ public class HeroRepository {
                     "ON h.power_stats_id = ps.id " +
                     "WHERE h.name " +
                     "ILIKE :name";
-
-    public HeroDTO findByName(String name) {
+    public ResultSet findByName(String name) {
         final Map<String, Object> params = Map.of("name", name);
         return namedParameterJdbcTemplate.queryForObject(
                 GET_HERO_BY_NAME_QUERY,
                 params,
-                (resultSet, rowNumber) -> buildHero(resultSet)
+                (resultSet, rowNumber) -> resultSet
         );
-    }
-
-    private HeroDTO buildHero(ResultSet resultSet) throws SQLException {
-        var name = resultSet.getString("name");
-        var race = resultSet.getString("race");
-        var powerStatsId = UUID.fromString(resultSet.getString("power"));
-        return new HeroDTO(name, race, powerStatsId);
     }
 
     private static final String UPDATE_HERO_BY_ID_QUERY =

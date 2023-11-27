@@ -40,11 +40,11 @@
     </properties>
 
     <modules>
-        <module>core</module>
         <module>power_stats</module>
         <module>hero</module>
         <module>web</module>
         <module>postgresql_persistence</module>
+        <module>infra</module>
     </modules>
 
     <dependencyManagement>
@@ -83,6 +83,11 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.17.2</version>
         </dependency>
     </dependencies>
 

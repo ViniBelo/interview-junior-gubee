@@ -50,7 +50,7 @@ public class FetchHeroController {
     private CreateHeroRequest createHeroRequest (HeroDTO hero, PowerStatsDto powerStats) {
         return new CreateHeroRequest(
                 hero.name(),
-                hero.race(),
+                hero.race().name(),
                 powerStats.strength(),
                 powerStats.agility(),
                 powerStats.dexterity(),

@@ -9,4 +9,5 @@ public interface PowerStatsRepository {
     UUID createPowerStats(PowerStats powerStats);
     void deletePowerStatsById(UUID id);
     void updatePowerStatsById(UUID id, PowerStatsDto powerStatsDto);
+    PowerStatsDto findPowerStatsById(UUID id);
 }
