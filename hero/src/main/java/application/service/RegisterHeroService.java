@@ -12,7 +12,6 @@ public class RegisterHeroService implements RegisterHeroUseCase {
     private final CreateHeroPort createHeroPort;
     @Override
     public UUID create(HeroDTO heroDTO) {
-        System.out.println("RHS");
         return createHeroPort.create(heroDTO);
     }
 }

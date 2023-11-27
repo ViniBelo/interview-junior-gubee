@@ -20,7 +20,6 @@ public class HeroAdapter {
     private final PowerStatsAdapter powerStatsAdapter;
 
     public UUID create(CreateHeroRequest createHeroRequest) {
-        System.out.println("RHA");
         final UUID powerStatsId = powerStatsAdapter.create(createHeroRequest);
         HeroDTO heroDTO = buildHeroDto.createHeroDto(
                 createHeroRequest.getName(),
