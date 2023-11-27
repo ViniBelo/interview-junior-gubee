@@ -15,7 +15,7 @@ public class PowerStatsAdapter {
     private final CreatePowerStatsUseCase createPowerStatsUseCase;
     private final UpdatePowerStatsUseCase updatePowerStatsUseCase;
     private final DeletePowerStatsUseCase deletePowerStatsUseCase;
-//    private final FetchPowerStatsUseCase fetchPowerStatsUseCase;
+    private final FetchPowerStatsUseCase fetchPowerStatsUseCase;
 
     public UUID create (CreateHeroRequest createHeroRequest) {
         PowerStatsDto powerStats = createPowerStatsDto(createHeroRequest);
@@ -27,9 +27,9 @@ public class PowerStatsAdapter {
         updatePowerStatsUseCase.updateById(id, powerStats);
     }
 
-//    public PowerStatsDto findPowerStatsById(UUID id) {
-//        return fetchPowerStatsUseCase.findPowerStatsById(id);
-//    }
+    public PowerStatsDto findPowerStatsById(UUID id) {
+        return fetchPowerStatsUseCase.findPowerStatsById(id);
+    }
 
     private PowerStatsDto createPowerStatsDto (CreateHeroRequest createHeroRequest) {
         return new PowerStatsDto(
@@ -42,9 +42,5 @@ public class PowerStatsAdapter {
 
     public void deletePowerStats (UUID id) {
         deletePowerStatsUseCase.deletePowerStats(id);
-    }
-
-    public PowerStatsDto findPowerStatsById(UUID uuid) {
-        return null;
     }
 }

@@ -15,12 +15,14 @@ public class WebAdapterConfiguration {
     public PowerStatsAdapter powerStatsAdapter (
             CreatePowerStatsUseCase createPowerStatsUseCase,
             UpdatePowerStatsUseCase updatePowerStatsUseCase,
-            DeletePowerStatsUseCase deletePowerStatsUseCase
+            DeletePowerStatsUseCase deletePowerStatsUseCase,
+            FetchPowerStatsUseCase fetchPowerStatsUseCase
     ) {
         return new PowerStatsAdapter(
                 createPowerStatsUseCase,
                 updatePowerStatsUseCase,
-                deletePowerStatsUseCase
+                deletePowerStatsUseCase,
+                fetchPowerStatsUseCase
         );
     }
 

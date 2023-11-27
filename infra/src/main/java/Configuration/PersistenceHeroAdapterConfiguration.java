@@ -7,7 +7,7 @@ import application.port.out.FindHeroPort;
 import application.port.out.UpdateHeroPort;
 import application.service.*;
 import hero.HeroPersistenceAdapter;
-import hero.HeroRepository;
+import hero.HeroRepositoryJdbcImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -23,22 +23,22 @@ public class PersistenceHeroAdapterConfiguration {
 
     @Bean
     public CreateHeroPort createHeroPort (NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
-        return new HeroPersistenceAdapter(new HeroRepository(namedParameterJdbcTemplate), buildHeroDto());
+        return new HeroPersistenceAdapter(new HeroRepositoryJdbcImpl(namedParameterJdbcTemplate), buildHeroDto());
     }
 
     @Bean
     public DeleteHeroPort deleteHeroPort (NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
-        return new HeroPersistenceAdapter(new HeroRepository(namedParameterJdbcTemplate), buildHeroDto());
+        return new HeroPersistenceAdapter(new HeroRepositoryJdbcImpl(namedParameterJdbcTemplate), buildHeroDto());
     }
 
     @Bean
     public FindHeroPort findHeroPort (NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
-        return new HeroPersistenceAdapter(new HeroRepository(namedParameterJdbcTemplate), buildHeroDto());
+        return new HeroPersistenceAdapter(new HeroRepositoryJdbcImpl(namedParameterJdbcTemplate), buildHeroDto());
     }
 
     @Bean
     public UpdateHeroPort updateHeroPort (NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
-        return new HeroPersistenceAdapter(new HeroRepository(namedParameterJdbcTemplate), buildHeroDto());
+        return new HeroPersistenceAdapter(new HeroRepositoryJdbcImpl(namedParameterJdbcTemplate), buildHeroDto());
     }
 
     @Bean

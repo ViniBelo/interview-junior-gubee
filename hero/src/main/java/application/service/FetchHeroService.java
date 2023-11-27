@@ -5,7 +5,6 @@ import application.port.out.FindHeroPort;
 import dto.HeroDTO;
 import lombok.RequiredArgsConstructor;
 
-import java.sql.SQLException;
 import java.util.UUID;
 
 @RequiredArgsConstructor
@@ -15,8 +14,9 @@ public class FetchHeroService implements FetchHeroUseCase {
     public HeroDTO findById(UUID id) {
         try {
             return findHeroPort.findById(id);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 
@@ -24,8 +24,9 @@ public class FetchHeroService implements FetchHeroUseCase {
     public HeroDTO findByName(String name) {
         try {
             return findHeroPort.findByName(name);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 }

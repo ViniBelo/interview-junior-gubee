@@ -1,5 +1,6 @@
 package power_stats;
 
+import data.builder.PowerStatsDataBuilder;
 import domain.model.PowerStats;
 import dto.PowerStatsDto;
 import lombok.RequiredArgsConstructor;
@@ -8,6 +9,8 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 import repositories.PowerStatsRepository;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Map;
 import java.util.UUID;
 
@@ -59,8 +62,31 @@ public class PowerStatsRepositoryJdbcImpl implements PowerStatsRepository {
         );
     }
 
+    private static final String GET_STATS_BY_ID_QUERY =
+            "SELECT ps.strength, ps.agility, ps.dexterity, ps.intelligence " +
+                    "FROM power_stats ps " +
+                    "WHERE id = :id";
     @Override
-    public PowerStatsDto findPowerStatsById(UUID id) {
-        return null;
+    public PowerStatsDataBuilder findPowerStatsById(UUID id) {
+        final Map<String, Object> params = Map.of("id", id);
+        return namedParameterJdbcTemplate.queryForObject(
+                GET_STATS_BY_ID_QUERY,
+                params,
+                (resultSet, rowNumber) -> buildPowerStats(resultSet)
+        );
+    }
+
+    private PowerStatsDataBuilder buildPowerStats (ResultSet resultSet) throws SQLException {
+        var strength = resultSet.getInt("strength");
+        var agility = resultSet.getInt("agility");
+        var dexterity = resultSet.getInt("dexterity");
+        var intelligence = resultSet.getInt("intelligence");
+        return PowerStatsDataBuilder
+                .builder()
+                .strength(strength)
+                .agility(agility)
+                .dexterity(dexterity)
+                .intelligence(intelligence)
+                .build();
     }
 }

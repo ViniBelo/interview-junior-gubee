@@ -1,5 +1,6 @@
 package repositories;
 
+import data.builder.PowerStatsDataBuilder;
 import domain.model.PowerStats;
 import dto.PowerStatsDto;
 
@@ -9,5 +10,5 @@ public interface PowerStatsRepository {
     UUID createPowerStats(PowerStats powerStats);
     void deletePowerStatsById(UUID id);
     void updatePowerStatsById(UUID id, PowerStatsDto powerStatsDto);
-    PowerStatsDto findPowerStatsById(UUID id);
+    PowerStatsDataBuilder findPowerStatsById(UUID id);
 }

@@ -1,5 +1,6 @@
 package hero;
 
+import data.builder.HeroDataBuilder;
 import application.port.in.BuildHeroDto;
 import application.port.out.CreateHeroPort;
 import application.port.out.DeleteHeroPort;
@@ -11,57 +12,48 @@ import org.springframework.dao.DuplicateKeyException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.UUID;
 
 @RequiredArgsConstructor
 public class HeroPersistenceAdapter implements CreateHeroPort, FindHeroPort, DeleteHeroPort, UpdateHeroPort {
-    private final HeroRepository heroRepository;
+    private final HeroRepositoryJdbcImpl heroRepositoryJdbcImpl;
     private final BuildHeroDto buildHeroDto;
 
     @Transactional
     @Override
     public UUID create(HeroDTO heroDTO) {
-        System.out.println("HPA");
-        return heroRepository.create(heroDTO);
+        return heroRepositoryJdbcImpl.create(heroDTO);
     }
 
     @Transactional
     @Override
     public HeroDTO findById(UUID id) throws EmptyResultDataAccessException {
-        ResultSet resultSet = heroRepository.findById(id);
-        return buildHero(resultSet);
+        return buildHero(heroRepositoryJdbcImpl.findById(id));
     }
 
     @Transactional
     @Override
     public HeroDTO findByName(String name) throws EmptyResultDataAccessException {
-        ResultSet resultSet = heroRepository.findByName(name);
-        return buildHero(resultSet);
+        return buildHero(heroRepositoryJdbcImpl.findByName(name));
     }
 
-    private HeroDTO buildHero(ResultSet resultSet) {
-        try {
-            var name = resultSet.getString("name");
-            var race = resultSet.getString("race");
-            var powerStatsId = UUID.fromString(resultSet.getString("power"));
-            return buildHeroDto.createHeroDto(name, race, powerStatsId);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
-        }
+    private HeroDTO buildHero(HeroDataBuilder heroDataBuilder) {
+        return buildHeroDto.createHeroDto(
+                heroDataBuilder.getName(),
+                heroDataBuilder.getRace(),
+                heroDataBuilder.getPowerStatsId()
+        );
     }
 
     @Transactional
     @Override
     public void updateById(UUID id, HeroDTO heroDTO) throws DuplicateKeyException, EmptyResultDataAccessException {
-        heroRepository.updateHero(id, heroDTO);
+        heroRepositoryJdbcImpl.updateHero(id, heroDTO);
     }
 
     @Transactional
     @Override
     public void deleteHero(UUID id) throws EmptyResultDataAccessException {
-        heroRepository.delete(id);
+        heroRepositoryJdbcImpl.delete(id);
     }
 }

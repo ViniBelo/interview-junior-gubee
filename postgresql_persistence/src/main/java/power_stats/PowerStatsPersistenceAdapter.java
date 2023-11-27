@@ -2,7 +2,9 @@ package power_stats;
 
 import application.port.out.CreatePowerStatsPort;
 import application.port.out.DeletePowerStatsPort;
+import application.port.out.FetchPowerStatsPort;
 import application.port.out.UpdatePowerStatsPort;
+import data.builder.PowerStatsDataBuilder;
 import domain.model.PowerStats;
 import dto.PowerStatsDto;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +14,7 @@ import repositories.PowerStatsRepository;
 import java.util.UUID;
 
 @RequiredArgsConstructor
-public class PowerStatsPersistenceAdapter implements CreatePowerStatsPort, UpdatePowerStatsPort, DeletePowerStatsPort {
+public class PowerStatsPersistenceAdapter implements FetchPowerStatsPort, CreatePowerStatsPort, UpdatePowerStatsPort, DeletePowerStatsPort {
     private final PowerStatsRepository powerStatsRepository;
 
     @Transactional
@@ -31,5 +33,17 @@ public class PowerStatsPersistenceAdapter implements CreatePowerStatsPort, Updat
     @Override
     public void updatePowerStatsById(UUID id, PowerStatsDto powerStatsDto) {
         powerStatsRepository.updatePowerStatsById(id, powerStatsDto);
+    }
+
+    @Transactional
+    @Override
+    public PowerStatsDto findPowerStatsById(UUID id) {
+        PowerStatsDataBuilder powerStatsDataBuilder = powerStatsRepository.findPowerStatsById(id);
+        return new PowerStatsDto(
+                powerStatsDataBuilder.getStrength(),
+                powerStatsDataBuilder.getAgility(),
+                powerStatsDataBuilder.getDexterity(),
+                powerStatsDataBuilder.getIntelligence()
+        );
     }
 }

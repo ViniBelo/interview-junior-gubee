@@ -2,12 +2,15 @@ package Configuration;
 
 import application.port.in.CreatePowerStatsUseCase;
 import application.port.in.DeletePowerStatsUseCase;
+import application.port.in.FetchPowerStatsUseCase;
 import application.port.in.UpdatePowerStatsUseCase;
 import application.port.out.CreatePowerStatsPort;
 import application.port.out.DeletePowerStatsPort;
+import application.port.out.FetchPowerStatsPort;
 import application.port.out.UpdatePowerStatsPort;
 import application.service.CreatePowerStatsService;
 import application.service.DeletePowerStatsService;
+import application.service.FindPowerStatsService;
 import application.service.UpdatePowerStatsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -35,6 +38,11 @@ public class PersistencePowerStatsAdapterConfiguration {
     }
 
     @Bean
+    public FetchPowerStatsPort fetchPowerStatsPort (NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
+        return new PowerStatsPersistenceAdapter(new PowerStatsRepositoryJdbcImpl(namedParameterJdbcTemplate));
+    }
+
+    @Bean
     public CreatePowerStatsUseCase createPowerStatsUseCase (NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
         return new CreatePowerStatsService(createPowerStatsPort(namedParameterJdbcTemplate));
     }
@@ -47,5 +55,10 @@ public class PersistencePowerStatsAdapterConfiguration {
     @Bean
     public DeletePowerStatsUseCase deletePowerStatsUseCase (NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
         return new DeletePowerStatsService(deletePowerStatsPort(namedParameterJdbcTemplate));
+    }
+
+    @Bean
+    public FetchPowerStatsUseCase fetchPowerStatsUseCase (NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
+        return new FindPowerStatsService(fetchPowerStatsPort(namedParameterJdbcTemplate));
     }
 }

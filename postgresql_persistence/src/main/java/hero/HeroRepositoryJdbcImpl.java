@@ -1,10 +1,12 @@
 package hero;
 
 
+import data.builder.HeroDataBuilder;
 import dto.HeroDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
+import repositories.HeroRepository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,12 +15,13 @@ import java.util.UUID;
 
 @Repository
 @RequiredArgsConstructor
-public class HeroRepository {
+public class HeroRepositoryJdbcImpl implements HeroRepository {
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     private static final String CREATE_HERO_QUERY = "INSERT INTO hero" +
             " (name, race, power_stats_id)" +
             " VALUES (:name, :race, :powerStatsId) RETURNING id";
+    @Override
     public UUID create(HeroDTO hero) {
         final Map<String, Object> params = Map.of("name", hero.name(),
                 "race", hero.race().name(),
@@ -37,12 +40,13 @@ public class HeroRepository {
                     "JOIN power_stats ps " +
                     "ON h.power_stats_id = ps.id " +
                     "WHERE h.id = :id";
-    public ResultSet findById(UUID id) {
+    @Override
+    public HeroDataBuilder findById(UUID id) {
         final Map<String, Object> params = Map.of("id", id);
         return namedParameterJdbcTemplate.queryForObject(
                 GET_HERO_BY_ID_QUERY,
                 params,
-                (resultSet, rowNumber) -> resultSet
+                (resultSet, rowNumber) -> buildHero(resultSet)
         );
     }
 
@@ -53,12 +57,13 @@ public class HeroRepository {
                     "ON h.power_stats_id = ps.id " +
                     "WHERE h.name " +
                     "ILIKE :name";
-    public ResultSet findByName(String name) {
+    @Override
+    public HeroDataBuilder findByName(String name) {
         final Map<String, Object> params = Map.of("name", name);
         return namedParameterJdbcTemplate.queryForObject(
                 GET_HERO_BY_NAME_QUERY,
                 params,
-                (resultSet, rowNumber) -> resultSet
+                (resultSet, rowNumber) -> buildHero(resultSet)
         );
     }
 
@@ -69,12 +74,12 @@ public class HeroRepository {
                     "race = :race, " +
                     "updated_at = NOW() " +
                     "WHERE id = :id";
-
+    @Override
     public void updateHero(UUID id, HeroDTO heroDTO) {
         final Map<String, Object> params = Map.of(
                 "id", id,
                 "name", heroDTO.name(),
-                "race", heroDTO.race()
+                "race", heroDTO.race().name()
         );
         namedParameterJdbcTemplate.update(
                 UPDATE_HERO_BY_ID_QUERY,
@@ -82,25 +87,23 @@ public class HeroRepository {
         );
     }
 
-    private static final String GET_POWER_STATS_ID_FROM_CURRENT_HERO_QUERY =
-            "SELECT h.power_stats_id " +
-                    "FROM hero h " +
-                    "WHERE id = :id";
-
-    public UUID getPowerStatsIdFromCurrentHero(UUID id) {
-        final Map<String, Object> params = Map.of("id", id);
-        return namedParameterJdbcTemplate.queryForObject(
-                GET_POWER_STATS_ID_FROM_CURRENT_HERO_QUERY,
-                params,
-                UUID.class
-        );
+    private HeroDataBuilder buildHero(ResultSet resultSet) throws SQLException {
+        var name = resultSet.getString("name");
+        var race = resultSet.getString("race");
+        var powerStatsId = UUID.fromString(resultSet.getString("power_stats_id"));
+        return HeroDataBuilder
+                .builder()
+                .name(name)
+                .race(race)
+                .powerStatsId(powerStatsId)
+                .build();
     }
 
     private static final String DELETE_HERO_QUERY =
             "DELETE " +
                     "FROM hero " +
                     "WHERE id = :id";
-
+    @Override
     public void delete(UUID id) {
         final Map<String, Object> params = Map.of("id", id);
         namedParameterJdbcTemplate.update(
