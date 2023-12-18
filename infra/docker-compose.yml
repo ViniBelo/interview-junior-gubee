@@ -3,6 +3,9 @@ services:
   interview-postgres-it:
     image: postgres:13.2-alpine
     container_name: interview-postgres-it
+    build:
+      context: ../postgresql_persistence/src/main/resources/db/schema/
+      dockerfile: Dockerfile
     networks:
       - interview-network
     environment:
@@ -11,7 +14,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - C:/Users/vinia/OneDrive/Documentos/dev/Java/Estágio/interview-junior/postgresql_persistence/src/main/resources/db/schema/init_schema.sql:/docker-entrypoint-initdb.d/init_schema.sql:z
+      - ../postgresql_persistence/src/main/resources/db/schema/Dockerfile:/docker-entrypoint-initdb.d/init_schema.sql:z
 
   api:
     build: ../web
@@ -25,3 +28,4 @@ services:
 
 networks:
   interview-network:
+    driver: bridge

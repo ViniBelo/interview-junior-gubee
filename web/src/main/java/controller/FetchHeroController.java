@@ -9,26 +9,25 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import request.CreateHeroRequest;
+import request.HeroResponse;
 
 import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping(value = "/api/v1/heroes", produces = MediaType.APPLICATION_JSON_VALUE)
 public class FetchHeroController {
     private final HeroAdapter heroAdapter;
     private final PowerStatsAdapter powerStatsAdapter;
     @GetMapping(value = "/{id}")
-    public ResponseEntity<CreateHeroRequest> findById(@Validated @PathVariable UUID id) {
+    public ResponseEntity<HeroResponse> findById(@Validated @PathVariable UUID id) {
         try {
             HeroDTO hero = heroAdapter.findById(id);
             PowerStatsDto powerStats = powerStatsAdapter.findPowerStatsById(hero.powerStatsId());
-            CreateHeroRequest createHeroResponse = createHeroRequest(hero, powerStats);
+            HeroResponse createHeroResponse = createHeroResponse(hero, powerStats);
             return ResponseEntity.ok(createHeroResponse);
         } catch (EmptyResultDataAccessException e) {
             return ResponseEntity.notFound().build();
@@ -36,19 +35,20 @@ public class FetchHeroController {
     }
 
     @GetMapping(value = "/search/{name}")
-    public ResponseEntity<CreateHeroRequest> findByName(@Validated @PathVariable String name) {
+    public ResponseEntity<HeroResponse> findByName(@Validated @PathVariable String name) {
         try {
             HeroDTO hero = heroAdapter.findByName(name);
             PowerStatsDto powerStats = powerStatsAdapter.findPowerStatsById(hero.powerStatsId());
-            CreateHeroRequest createHeroResponse = createHeroRequest(hero, powerStats);
+            HeroResponse createHeroResponse = createHeroResponse(hero, powerStats);
             return ResponseEntity.ok().body(createHeroResponse);
         } catch (EmptyResultDataAccessException e) {
             return ResponseEntity.ok().build();
         }
     }
 
-    private CreateHeroRequest createHeroRequest (HeroDTO hero, PowerStatsDto powerStats) {
-        return new CreateHeroRequest(
+    private HeroResponse createHeroResponse (HeroDTO hero, PowerStatsDto powerStats) {
+        return new HeroResponse(
+                hero.id(),
                 hero.name(),
                 hero.race().name(),
                 powerStats.strength(),

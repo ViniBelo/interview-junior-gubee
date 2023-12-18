@@ -38,7 +38,8 @@ public class HeroPersistenceAdapter implements CreateHeroPort, FindHeroPort, Del
     }
 
     private HeroDTO buildHero(HeroDataBuilder heroDataBuilder) {
-        return buildHeroDto.createHeroDto(
+        return buildHeroDto.createHeroDtoWithId(
+                heroDataBuilder.getId(),
                 heroDataBuilder.getName(),
                 heroDataBuilder.getRace(),
                 heroDataBuilder.getPowerStatsId()

@@ -21,6 +21,9 @@ import static lombok.AccessLevel.PRIVATE;
 @NoArgsConstructor(access = PRIVATE)
 public class HeroDataBuilder {
 
+    @NotNull
+    private UUID id;
+
     @NotBlank
     @Length(min = 1, max = 255)
     private String name;
