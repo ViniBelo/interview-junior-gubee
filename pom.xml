@@ -44,16 +44,10 @@
         <module>hero</module>
         <module>web</module>
         <module>postgresql_persistence</module>
-        <module>infra</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>gubee</groupId>
-                <artifactId>interview-model</artifactId>
-                <version>${project.version}</version>
-            </dependency>
 
             <dependency>
                 <groupId>javax.xml.bind</groupId>

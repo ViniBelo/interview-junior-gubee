@@ -88,11 +88,13 @@ public class HeroRepositoryJdbcImpl implements HeroRepository {
     }
 
     private HeroDataBuilder buildHero(ResultSet resultSet) throws SQLException {
+        var id = UUID.fromString(resultSet.getString("id"));
         var name = resultSet.getString("name");
         var race = resultSet.getString("race");
         var powerStatsId = UUID.fromString(resultSet.getString("power_stats_id"));
         return HeroDataBuilder
                 .builder()
+                .id(id)
                 .name(name)
                 .race(race)
                 .powerStatsId(powerStatsId)

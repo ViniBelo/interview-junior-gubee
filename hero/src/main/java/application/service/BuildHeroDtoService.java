@@ -15,4 +15,14 @@ public class BuildHeroDtoService implements BuildHeroDto {
                 powerStatsId
         );
     }
+
+    @Override
+    public HeroDTO createHeroDtoWithId(UUID id, String name, String race, UUID powerStatsId) {
+        return new HeroDTO(
+                id,
+                name,
+                Race.valueOf(race),
+                powerStatsId
+        );
+    }
 }
