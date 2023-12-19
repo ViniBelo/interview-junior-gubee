@@ -1,16 +1,16 @@
-[32m[INFO ][m [35m[2023-12-17T20:34:09,667] [background-preinit] [Version][m HV000001: Hibernate Validator 6.2.3.Final 
-[32m[INFO ][m [35m[2023-12-17T20:34:09,716] [main] [Application][m Starting Application using Java 17.0.8 on MacBook-Pro-de-Vinicius.local with PID 9203 (/Users/vinibelo/Developer/Java/Estudos/Estágio/interview-junior-gubee/infra/target/classes started by vinibelo in /Users/vinibelo/Developer/Java/Estudos/Estágio/interview-junior-gubee) 
-[32m[INFO ][m [35m[2023-12-17T20:34:09,723] [main] [Application][m No active profile set, falling back to 1 default profile: "default" 
-[32m[INFO ][m [35m[2023-12-17T20:34:10,623] [main] [RepositoryConfigurationDelegate][m Bootstrapping Spring Data JDBC repositories in DEFAULT mode. 
-[32m[INFO ][m [35m[2023-12-17T20:34:10,640] [main] [RepositoryConfigurationDelegate][m Finished Spring Data repository scanning in 12 ms. Found 0 JDBC repository interfaces. 
-[32m[INFO ][m [35m[2023-12-17T20:34:11,321] [main] [TomcatWebServer][m Tomcat initialized with port(s): 8080 (http) 
-[32m[INFO ][m [35m[2023-12-17T20:34:11,338] [main] [Http11NioProtocol][m Initializing ProtocolHandler ["http-nio-8080"] 
-[32m[INFO ][m [35m[2023-12-17T20:34:11,339] [main] [StandardService][m Starting service [Tomcat] 
-[32m[INFO ][m [35m[2023-12-17T20:34:11,340] [main] [StandardEngine][m Starting Servlet engine: [Apache Tomcat/9.0.62] 
-[32m[INFO ][m [35m[2023-12-17T20:34:11,498] [main] [[/]][m Initializing Spring embedded WebApplicationContext 
-[32m[INFO ][m [35m[2023-12-17T20:34:11,499] [main] [ServletWebServerApplicationContext][m Root WebApplicationContext: initialization completed in 1680 ms 
-[32m[INFO ][m [35m[2023-12-17T20:34:11,731] [main] [HikariDataSource][m HikariPool-1 - Starting... 
-[1;31m[ERROR][m [35m[2023-12-17T20:34:12,775] [main] [HikariPool][m HikariPool-1 - Exception during pool initialization. 
+[INFO ] [2023-12-19T08:28:55,333] [background-preinit] [Version] HV000001: Hibernate Validator 6.2.3.Final 
+[INFO ] [2023-12-19T08:28:55,364] [main] [Application] Starting Application using Java 17.0.8 on Vini-Desktop with PID 6372 (C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior\infra\target\classes started by vinia in C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior) 
+[INFO ] [2023-12-19T08:28:55,367] [main] [Application] No active profile set, falling back to 1 default profile: "default" 
+[INFO ] [2023-12-19T08:28:55,849] [main] [RepositoryConfigurationDelegate] Bootstrapping Spring Data JDBC repositories in DEFAULT mode. 
+[INFO ] [2023-12-19T08:28:55,863] [main] [RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 10 ms. Found 0 JDBC repository interfaces. 
+[INFO ] [2023-12-19T08:28:56,213] [main] [TomcatWebServer] Tomcat initialized with port(s): 8080 (http) 
+[INFO ] [2023-12-19T08:28:56,224] [main] [Http11NioProtocol] Initializing ProtocolHandler ["http-nio-8080"] 
+[INFO ] [2023-12-19T08:28:56,224] [main] [StandardService] Starting service [Tomcat] 
+[INFO ] [2023-12-19T08:28:56,225] [main] [StandardEngine] Starting Servlet engine: [Apache Tomcat/9.0.62] 
+[INFO ] [2023-12-19T08:28:56,294] [main] [[/]] Initializing Spring embedded WebApplicationContext 
+[INFO ] [2023-12-19T08:28:56,295] [main] [ServletWebServerApplicationContext] Root WebApplicationContext: initialization completed in 889 ms 
+[INFO ] [2023-12-19T08:28:56,403] [main] [HikariDataSource] HikariPool-1 - Starting... 
+[ERROR] [2023-12-19T08:28:57,442] [main] [HikariPool] HikariPool-1 - Exception during pool initialization. 
 org.postgresql.util.PSQLException: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:319) ~[postgresql-42.3.4.jar:42.3.4]
 	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:49) ~[postgresql-42.3.4.jar:42.3.4]
@@ -91,7 +91,7 @@ org.postgresql.util.PSQLException: Connection to localhost:5432 refused. Check t
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1312) ~[spring-boot-2.6.7.jar:2.6.7]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301) ~[spring-boot-2.6.7.jar:2.6.7]
 	at application.Application.main(Application.java:19) ~[classes/:?]
-Caused by: java.net.ConnectException: Connection refused
+Caused by: java.net.ConnectException: Connection refused: no further information
 	at sun.nio.ch.Net.pollConnect(Native Method) ~[?:?]
 	at sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[?:?]
 	at sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:547) ~[?:?]
@@ -103,18 +103,18 @@ Caused by: java.net.ConnectException: Connection refused
 	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:109) ~[postgresql-42.3.4.jar:42.3.4]
 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:235) ~[postgresql-42.3.4.jar:42.3.4]
 	... 78 more
-[33m[WARN ][m [35m[2023-12-17T20:34:13,147] [main] [AnnotationConfigServletWebServerApplicationContext][m Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'fetchHeroController' defined in file [/Users/vinibelo/Developer/Java/Estudos/Estágio/interview-junior-gubee/web/target/classes/controller/FetchHeroController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'heroAdapter' defined in configuration.WebAdapterConfiguration: Unsatisfied dependency expressed through method 'heroAdapter' parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'fetchHeroUseCase' defined in configuration.PersistenceHeroAdapterConfiguration: Unsatisfied dependency expressed through method 'fetchHeroUseCase' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+[WARN ] [2023-12-19T08:28:57,542] [main] [AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'compareHeroesController' defined in file [C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior\web\target\classes\controller\CompareHeroesController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'heroAdapter' defined in configuration.WebAdapterConfiguration: Unsatisfied dependency expressed through method 'heroAdapter' parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'fetchHeroUseCase' defined in configuration.PersistenceHeroAdapterConfiguration: Unsatisfied dependency expressed through method 'fetchHeroUseCase' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 SQL State  : 08001
 Error Code : 0
 Message    : Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
  
-[32m[INFO ][m [35m[2023-12-17T20:34:13,177] [main] [StandardService][m Stopping service [Tomcat] 
-[32m[INFO ][m [35m[2023-12-17T20:34:13,277] [main] [ConditionEvaluationReportLoggingListener][m 
+[INFO ] [2023-12-19T08:28:57,545] [main] [StandardService] Stopping service [Tomcat] 
+[INFO ] [2023-12-19T08:28:57,551] [main] [ConditionEvaluationReportLoggingListener] 
 
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled. 
-[1;31m[ERROR][m [35m[2023-12-17T20:34:13,328] [main] [SpringApplication][m Application run failed 
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'fetchHeroController' defined in file [/Users/vinibelo/Developer/Java/Estudos/Estágio/interview-junior-gubee/web/target/classes/controller/FetchHeroController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'heroAdapter' defined in configuration.WebAdapterConfiguration: Unsatisfied dependency expressed through method 'heroAdapter' parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'fetchHeroUseCase' defined in configuration.PersistenceHeroAdapterConfiguration: Unsatisfied dependency expressed through method 'fetchHeroUseCase' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+[ERROR] [2023-12-19T08:28:57,561] [main] [SpringApplication] Application run failed 
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'compareHeroesController' defined in file [C:\Users\vinia\OneDrive\Documentos\dev\Java\Estágio\interview-junior\web\target\classes\controller\CompareHeroesController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'heroAdapter' defined in configuration.WebAdapterConfiguration: Unsatisfied dependency expressed through method 'heroAdapter' parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'fetchHeroUseCase' defined in configuration.PersistenceHeroAdapterConfiguration: Unsatisfied dependency expressed through method 'fetchHeroUseCase' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 SQL State  : 08001
 Error Code : 0
@@ -364,7 +364,7 @@ Caused by: org.postgresql.util.PSQLException: Connection to localhost:5432 refus
 	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:887) ~[spring-beans-5.3.19.jar:5.3.19]
 	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-5.3.19.jar:5.3.19]
 	... 19 more
-Caused by: java.net.ConnectException: Connection refused
+Caused by: java.net.ConnectException: Connection refused: no further information
 	at sun.nio.ch.Net.pollConnect(Native Method) ~[?:?]
 	at sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[?:?]
 	at sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:547) ~[?:?]
@@ -435,83 +435,3 @@ Caused by: java.net.ConnectException: Connection refused
 	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:887) ~[spring-beans-5.3.19.jar:5.3.19]
 	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-5.3.19.jar:5.3.19]
 	... 19 more
-[32m[INFO ][m [35m[2023-12-17T20:34:35,461] [background-preinit] [Version][m HV000001: Hibernate Validator 6.2.3.Final 
-[32m[INFO ][m [35m[2023-12-17T20:34:35,501] [main] [Application][m Starting Application using Java 17.0.8 on MacBook-Pro-de-Vinicius.local with PID 9292 (/Users/vinibelo/Developer/Java/Estudos/Estágio/interview-junior-gubee/infra/target/classes started by vinibelo in /Users/vinibelo/Developer/Java/Estudos/Estágio/interview-junior-gubee) 
-[32m[INFO ][m [35m[2023-12-17T20:34:35,507] [main] [Application][m No active profile set, falling back to 1 default profile: "default" 
-[32m[INFO ][m [35m[2023-12-17T20:34:36,366] [main] [RepositoryConfigurationDelegate][m Bootstrapping Spring Data JDBC repositories in DEFAULT mode. 
-[32m[INFO ][m [35m[2023-12-17T20:34:36,383] [main] [RepositoryConfigurationDelegate][m Finished Spring Data repository scanning in 13 ms. Found 0 JDBC repository interfaces. 
-[32m[INFO ][m [35m[2023-12-17T20:34:36,940] [main] [TomcatWebServer][m Tomcat initialized with port(s): 8080 (http) 
-[32m[INFO ][m [35m[2023-12-17T20:34:36,954] [main] [Http11NioProtocol][m Initializing ProtocolHandler ["http-nio-8080"] 
-[32m[INFO ][m [35m[2023-12-17T20:34:36,955] [main] [StandardService][m Starting service [Tomcat] 
-[32m[INFO ][m [35m[2023-12-17T20:34:36,956] [main] [StandardEngine][m Starting Servlet engine: [Apache Tomcat/9.0.62] 
-[32m[INFO ][m [35m[2023-12-17T20:34:37,054] [main] [[/]][m Initializing Spring embedded WebApplicationContext 
-[32m[INFO ][m [35m[2023-12-17T20:34:37,055] [main] [ServletWebServerApplicationContext][m Root WebApplicationContext: initialization completed in 1460 ms 
-[32m[INFO ][m [35m[2023-12-17T20:34:37,237] [main] [HikariDataSource][m HikariPool-1 - Starting... 
-[32m[INFO ][m [35m[2023-12-17T20:34:37,350] [main] [HikariDataSource][m HikariPool-1 - Start completed. 
-[32m[INFO ][m [35m[2023-12-17T20:34:37,373] [main] [VersionPrinter][m Flyway Community Edition 8.0.5 by Redgate 
-[32m[INFO ][m [35m[2023-12-17T20:34:37,373] [main] [BaseDatabaseType][m Database: jdbc:postgresql://localhost/postgres (PostgreSQL 13.2) 
-[32m[INFO ][m [35m[2023-12-17T20:34:37,491] [main] [DbValidate][m Successfully validated 2 migrations (execution time 00:00.056s) 
-[32m[INFO ][m [35m[2023-12-17T20:34:37,511] [main] [DbMigrate][m Current version of schema "interview_service": 1.1 
-[32m[INFO ][m [35m[2023-12-17T20:34:37,512] [main] [DbMigrate][m Schema "interview_service" is up to date. No migration necessary. 
-[32m[INFO ][m [35m[2023-12-17T20:34:38,083] [main] [Http11NioProtocol][m Starting ProtocolHandler ["http-nio-8080"] 
-[32m[INFO ][m [35m[2023-12-17T20:34:38,099] [main] [TomcatWebServer][m Tomcat started on port(s): 8080 (http) with context path '' 
-[32m[INFO ][m [35m[2023-12-17T20:34:38,114] [main] [Application][m Started Application in 3.058 seconds (JVM running for 4.281) 
-[32m[INFO ][m [35m[2023-12-17T20:34:53,065] [http-nio-8080-exec-1] [[/]][m Initializing Spring DispatcherServlet 'dispatcherServlet' 
-[32m[INFO ][m [35m[2023-12-17T20:34:53,066] [http-nio-8080-exec-1] [DispatcherServlet][m Initializing Servlet 'dispatcherServlet' 
-[32m[INFO ][m [35m[2023-12-17T20:34:53,067] [http-nio-8080-exec-1] [DispatcherServlet][m Completed initialization in 1 ms 
-[1;31m[ERROR][m [35m[2023-12-17T20:35:37,528] [http-nio-8080-exec-4] [[dispatcherServlet]][m Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "dto.HeroDTO.powerStatsId()" because "hero" is null] with root cause 
-java.lang.NullPointerException: Cannot invoke "dto.HeroDTO.powerStatsId()" because "hero" is null
-	at controller.FetchHeroController.findByName(FetchHeroController.java:41) ~[classes/:?]
-	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
-	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
-	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
-	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.19.jar:5.3.19]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.19.jar:5.3.19]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.19.jar:5.3.19]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.19.jar:5.3.19]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.19.jar:5.3.19]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.19.jar:5.3.19]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.19.jar:5.3.19]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.19.jar:5.3.19]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.19.jar:5.3.19]
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.19.jar:5.3.19]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.62.jar:4.0.FR]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.19.jar:5.3.19]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.62.jar:4.0.FR]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.62.jar:9.0.62]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.19.jar:5.3.19]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.19.jar:5.3.19]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.19.jar:5.3.19]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.19.jar:5.3.19]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.19.jar:5.3.19]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.19.jar:5.3.19]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at java.lang.Thread.run(Thread.java:833) ~[?:?]
-[33m[WARN ][m [35m[2023-12-17T20:44:35,194] [HikariPool-1 housekeeper] [HikariPool][m HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m27s711ms). 
-[33m[WARN ][m [35m[2023-12-17T21:09:53,652] [HikariPool-1 housekeeper] [HikariPool][m HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=12m18s402ms). 
-[33m[WARN ][m [35m[2023-12-17T21:10:43,983] [HikariPool-1 housekeeper] [HikariPool][m HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=50s331ms). 

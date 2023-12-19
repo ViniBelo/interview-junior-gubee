@@ -3,6 +3,7 @@ package configuration;
 import adapter.HeroAdapter;
 import adapter.PowerStatsAdapter;
 import application.port.in.*;
+import application.port.out.FindStatsFromComparedHeroes;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -32,6 +33,7 @@ public class WebAdapterConfiguration {
             UpdateHeroUseCase updateHeroUseCase,
             RemoveHeroUseCase removeHeroUseCase,
             RegisterHeroUseCase registerHeroUseCase,
+            FindStatsFromComparedHeroes findStatsFromComparedHeroes,
             BuildHeroDto buildHeroDto,
             PowerStatsAdapter powerStatsAdapter
     ) {
@@ -40,6 +42,7 @@ public class WebAdapterConfiguration {
                 updateHeroUseCase,
                 removeHeroUseCase,
                 registerHeroUseCase,
+                findStatsFromComparedHeroes,
                 buildHeroDto,
                 powerStatsAdapter
                 );

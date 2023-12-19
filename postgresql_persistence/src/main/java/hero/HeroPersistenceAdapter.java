@@ -1,11 +1,8 @@
 package hero;
 
+import application.port.out.*;
 import data.builder.HeroDataBuilder;
 import application.port.in.BuildHeroDto;
-import application.port.out.CreateHeroPort;
-import application.port.out.DeleteHeroPort;
-import application.port.out.FindHeroPort;
-import application.port.out.UpdateHeroPort;
 import dto.HeroDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DuplicateKeyException;
@@ -13,9 +10,10 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
+import java.util.Vector;
 
 @RequiredArgsConstructor
-public class HeroPersistenceAdapter implements CreateHeroPort, FindHeroPort, DeleteHeroPort, UpdateHeroPort {
+public class HeroPersistenceAdapter implements CreateHeroPort, FindHeroPort, DeleteHeroPort, UpdateHeroPort, FindStatsFromComparedHeroes {
     private final HeroRepositoryJdbcImpl heroRepositoryJdbcImpl;
     private final BuildHeroDto buildHeroDto;
 
@@ -56,5 +54,14 @@ public class HeroPersistenceAdapter implements CreateHeroPort, FindHeroPort, Del
     @Override
     public void deleteHero(UUID id) throws EmptyResultDataAccessException {
         heroRepositoryJdbcImpl.delete(id);
+    }
+
+    @Transactional
+    @Override
+    public Vector<HeroDTO> findUsersToCompare(UUID id1, UUID id2) {
+        Vector<HeroDTO> heroes = new Vector<>();
+        heroes.add(buildHero(heroRepositoryJdbcImpl.findById(id1)));
+        heroes.add(buildHero(heroRepositoryJdbcImpl.findById(id2)));
+        return heroes;
     }
 }

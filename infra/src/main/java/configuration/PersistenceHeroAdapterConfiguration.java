@@ -1,10 +1,7 @@
 package configuration;
 
 import application.port.in.*;
-import application.port.out.CreateHeroPort;
-import application.port.out.DeleteHeroPort;
-import application.port.out.FindHeroPort;
-import application.port.out.UpdateHeroPort;
+import application.port.out.*;
 import application.service.*;
 import hero.HeroPersistenceAdapter;
 import hero.HeroRepositoryJdbcImpl;
@@ -38,6 +35,11 @@ public class PersistenceHeroAdapterConfiguration {
 
     @Bean
     public UpdateHeroPort updateHeroPort (NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
+        return new HeroPersistenceAdapter(new HeroRepositoryJdbcImpl(namedParameterJdbcTemplate), buildHeroDto());
+    }
+
+    @Bean
+    public FindStatsFromComparedHeroes findStatsFromComparedHeroes (NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
         return new HeroPersistenceAdapter(new HeroRepositoryJdbcImpl(namedParameterJdbcTemplate), buildHeroDto());
     }
 
