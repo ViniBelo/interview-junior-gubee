@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import request.CreateHeroRequest;
 import response.CompareStatsResponse;
 
+import java.util.List;
 import java.util.UUID;
 import java.util.Vector;
 
@@ -46,6 +47,10 @@ public class HeroAdapter {
                 .dexterity(powerStats1.dexterity() - powerStats2.dexterity())
                 .intelligence(powerStats1.intelligence() - powerStats2.intelligence())
                 .build();
+    }
+
+    public List<HeroDTO> findAll() {
+        return fetchHeroUseCase.getAll();
     }
 
     public HeroDTO findById(UUID id) {

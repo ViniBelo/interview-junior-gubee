@@ -10,6 +10,7 @@ import repositories.HeroRepository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -31,6 +32,19 @@ public class HeroRepositoryJdbcImpl implements HeroRepository {
                 CREATE_HERO_QUERY,
                 params,
                 UUID.class
+        );
+    }
+
+    private static final String GET_ALL_HEROES_QUERY =
+            "SELECT h.id, h.name, h.race, h.enabled, h.power_stats_id, ps.id, ps.strength, ps.agility, ps.dexterity, ps.intelligence " +
+                    "FROM hero h " +
+                    "JOIN power_stats ps " +
+                    "ON h.power_stats_id = ps.id";
+    @Override
+    public List<HeroDataBuilder> findAll() {
+        return namedParameterJdbcTemplate.query(
+                GET_ALL_HEROES_QUERY,
+                (resultSet, rowNum) -> buildHero(resultSet)
         );
     }
 

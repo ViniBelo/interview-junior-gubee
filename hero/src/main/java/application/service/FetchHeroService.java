@@ -5,11 +5,22 @@ import application.port.out.FindHeroPort;
 import dto.HeroDTO;
 import lombok.RequiredArgsConstructor;
 
+import java.util.List;
 import java.util.UUID;
 
 @RequiredArgsConstructor
 public class FetchHeroService implements FetchHeroUseCase {
     private final FindHeroPort findHeroPort;
+
+    @Override
+    public List<HeroDTO> getAll() {
+        try {
+            return findHeroPort.findAll();
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
     @Override
     public HeroDTO findById(UUID id) {
         try {

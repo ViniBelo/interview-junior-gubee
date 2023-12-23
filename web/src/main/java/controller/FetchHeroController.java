@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 import request.CreateHeroRequest;
 import request.HeroResponse;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -22,6 +24,24 @@ import java.util.UUID;
 public class FetchHeroController {
     private final HeroAdapter heroAdapter;
     private final PowerStatsAdapter powerStatsAdapter;
+
+    @GetMapping
+    public ResponseEntity<List<HeroResponse>> findAll() {
+        try {
+            List<HeroDTO> heroes = heroAdapter.findAll();
+            List<PowerStatsDto> powerStatsList = new ArrayList<>();
+            List<HeroResponse> heroResponses = new ArrayList<>();
+            for (HeroDTO hero: heroes) {
+                PowerStatsDto powerStats = powerStatsAdapter.findPowerStatsById(hero.powerStatsId());
+                HeroResponse createHeroResponse = createHeroResponse(hero, powerStats);
+                heroResponses.add(createHeroResponse);
+            }
+            return ResponseEntity.ok(heroResponses);
+        } catch (EmptyResultDataAccessException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @GetMapping(value = "/{id}")
     public ResponseEntity<HeroResponse> findById(@Validated @PathVariable UUID id) {
         try {

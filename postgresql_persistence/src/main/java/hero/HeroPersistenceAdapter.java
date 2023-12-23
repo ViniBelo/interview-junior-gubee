@@ -9,6 +9,8 @@ import org.springframework.dao.DuplicateKeyException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 import java.util.Vector;
 
@@ -21,6 +23,16 @@ public class HeroPersistenceAdapter implements CreateHeroPort, FindHeroPort, Del
     @Override
     public UUID create(HeroDTO heroDTO) {
         return heroRepositoryJdbcImpl.create(heroDTO);
+    }
+
+    @Override
+    public List<HeroDTO> findAll() {
+        List<HeroDataBuilder> heroes = heroRepositoryJdbcImpl.findAll();
+        List<HeroDTO> heroesDto = new ArrayList<>();
+        for (HeroDataBuilder hero: heroes) {
+            heroesDto.add(buildHero(hero));
+        }
+        return heroesDto;
     }
 
     @Transactional
